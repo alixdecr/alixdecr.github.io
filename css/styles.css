@@ -9,15 +9,17 @@
     background-color: rgb(33, 33, 33);
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .container {
 }
 
 .div-left {
+    text-align: center;
     position: fixed;
-    width: 30%;
-    max-width: 30%;
+    width: 25%;
+    max-width: 25%;
     height: 80%;
     max-height: 80%;
     padding: 5%;
