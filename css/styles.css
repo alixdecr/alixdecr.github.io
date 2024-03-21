@@ -7,7 +7,38 @@
     /* Other */
     color: white;
     background-color: rgb(33, 33, 33);
-    margin: 1%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: 5%;
+}
+
+.div-left {
+    flex: 1;
+    border-right: 1px solid gray;
+}
+
+.div-right {
+    flex: 2;
+    margin-left: 5%;
+}
+
+.bar-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.title-main {
+    font-size: 35px;
 }
 
 .title-color {
@@ -16,5 +47,37 @@
 
 .img-profile {
     border-radius: 50%;
-    width: 12%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.p-university {
+    color: rgb(188, 188, 188);
+    margin-top: 5px;
+}
+
+.p-spacing {
+    margin-top: 2%;
+}
+
+.span-date {
+    color: rgb(215, 215, 103);
+}
+
+.p-subsection {
+    margin-top: 5px;
+    font-style: italic;
+    color: rgb(188, 188, 188);
+}
+
+.a-link {
+    color: rgb(85, 210, 200);
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+.a-link:hover {
+    color: gray;
 }
