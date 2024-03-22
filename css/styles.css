@@ -63,23 +63,17 @@
     display: block;
 }
 
-.p-university {
-    color: rgb(188, 188, 188);
-    margin-top: 5px;
-}
-
-.p-spacing {
+.p-section {
     margin-top: 2%;
-}
-
-.span-date {
-    color: rgb(215, 215, 103);
 }
 
 .p-subsection {
     margin-top: 5px;
-    font-style: italic;
     color: rgb(188, 188, 188);
+}
+
+.span-date {
+    color: rgb(215, 215, 103);
 }
 
 .a-link {
