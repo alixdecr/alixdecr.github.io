@@ -85,3 +85,8 @@
 .a-link:hover {
     color: gray;
 }
+
+.a-icon {
+    display: inline-block;
+    margin: 5px;
+}
