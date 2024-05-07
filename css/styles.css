@@ -6,7 +6,7 @@
     font-style: normal;
     /* Other */
     color: white;
-    background-color: rgb(33, 33, 33);
+    background-color: rgb(30, 30, 30);
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -53,7 +53,7 @@
 }
 
 .title-color {
-    color: rgb(99, 138, 199);
+    color: rgb(121, 167, 241);
 }
 
 .img-profile {
@@ -70,15 +70,15 @@
 
 .p-subsection {
     margin-top: 5px;
-    color: rgb(188, 188, 188);
+    color: rgb(205, 205, 205);
 }
 
 .span-date {
-    color: rgb(215, 215, 103);
+    color: rgb(238, 238, 114);
 }
 
 .a-link {
-    color: rgb(85, 210, 200);
+    color: rgb(97, 239, 228);
     text-decoration: none;
     transition-duration: 0.5s;
 }
