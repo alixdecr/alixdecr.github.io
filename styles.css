@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+}
+
+html {
+    font-size: 20px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+head, title, meta {
+    display: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a, button, input, textarea {
+    font-family: inherit;
+    border: none;
+    background: none;
+    outline: none;
+    text-decoration: none;
+}
+
+textarea {
+    resize: none;
+}
+
+button:hover, input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.br-small {
+    margin-bottom: 0.3rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.color-descr {
+    color: rgb(67, 67, 67);
+}
+
+.color-date {
+    color: rgb(151, 0, 118);
+}
+
+.color-link {
+    color: rgb(115, 187, 255);
+}
+
+.color-white {
+    color: white;
+}
+
+.font-small {
+    font-size: 0.8rem;
+}
+
+.footer {
+    width: 100%;
+    background-color: black;
+    padding: 0.5rem;
+}
+
+.hoverable {
+    transition: color 0.3s;
+}
+
+.hoverable:hover {
+    color: gray;
+}
+
+.icons-contact {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.img-profile {
+    border: 4px solid white;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    width: 12rem;
+}
+
+.intro {
+    background-color: rgb(43, 43, 43);
+}
+
+.section {
+    padding: 2rem;
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 16px;
+    }
+}

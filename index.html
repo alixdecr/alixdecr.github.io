@@ -1,93 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+
     <title>Alix Decrop - Personal Website</title>
 </head>
 <body>
-    <div class="container">
-        <div class="div-left">
-            <h1 class="title-main title-color">Alix Decrop</h1>
-            <br><br>
-            <img class="img-profile" src="img/profilepic.jpg" alt="Avatar">
-            <br><br>
-            <h2 class="title-color">PhD Student Researcher and Teaching Assistant</h2>
-            <br>
-            <p>I am currently working as a PhD student at the University of Namur. My work is twofold; I am researcher in Software Testing, Large Language Models and RESTful APIs. I am also a teaching assistant, my lectures being Syntax and Semantics, Algorithms and Programming Projects.</p>
-            <br><br>
-            <h2 class="title-color">Contact me here!</h2>
-            <a class="a-icon" href="mailto:alix.decrop@unamur.be" target="_blank">
-                <i class="fas fa-envelope fa-2x"></i>
+    <div class="navbar"></div>
+
+    <div class="section intro">
+        <img class="img-profile" src="img/profilepic.jpg" alt="Avatar">
+
+        <br><br>
+
+        <h1 class="center color-white">Alix Decrop</h1>
+
+        <br>
+
+        <p class="br-small center color-white">PhD Student Researcher and Teaching Assistant</p>
+        <p class="center"><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+
+        <br><br>
+
+        <div class="icons-contact">
+            <a href="mailto:alix.decrop@unamur.be" target="_blank">
+                <i class="fas fa-envelope fa-2x color-link hoverable"></i>
             </a>
-            <a class="a-icon" href="https://github.com/alixdecr" target="_blank">
-                <i class="fab fa-github fa-2x"></i>
+            <a href="https://github.com/alixdecr" target="_blank">
+                <i class="fab fa-github fa-2x color-link hoverable"></i>
             </a>
-            <a class="a-icon" href="https://www.linkedin.com/in/alix-decrop" target="_blank">
-                <i class="fab fa-linkedin fa-2x"></i>
+            <a href="https://www.linkedin.com/in/alix-decrop" target="_blank">
+                <i class="fab fa-linkedin fa-2x color-link hoverable"></i>
             </a>
-        </div>
-        <div class="div-right">
-            <h1 class="title-main title-color">Portfolio</h1>
-            <p class="p-section">Below, you can find information about myself such as my <a class="a-link" href="#h2-experience">Experience</a>, <a class="a-link" href="#h2-education">Education</a>, <a class="a-link" href="#h2-research">Research</a> and <a class="a-link" href="#h2-awards">Awards</a>.</p>
-            <br>
-            <h2 id="h2-experience" class="title-color">Experience</h2>
-            <p class="p-section"><span class="span-date">2023-Present</span> PhD Researcher and Teaching Assistant</p>
-            <p class="p-subsection">- Research: Software Testing, Large Language Models, RESTful APIs</p>
-            <p class="p-subsection">- Teaching: Syntax and Semantics, Algorithms, Programming Projects</p>
-            <p class="p-subsection">University of Namur</p>
-            <p class="p-section"><span class="span-date">2024</span> Web Chair for <a class="a-link" href="https://conf.researchr.org/home/issta-2025" target="_blank">ISSTA 25</a> and <a class="a-link" href="https://benevol2024.github.io" target="_blank">BENEVOL 24</a></p>
-            <p class="p-subsection">Responsible for creating, updating and maintaining the websites of the related conferences.</p>
-            <p class="p-subsection">University of Namur</p>
-            <p class="p-section"><span class="span-date">2017-2023</span> Tourist Informant (Student Job)</p>
-            <p class="p-subsection">Responsible for providing information about the local area to visitors.</p>
-            <p class="p-subsection">Tourism Office of Assesse</p>
-            <br>
-            <h2 id="h2-education" class="title-color">Education</h2>
-            <p class="p-section"><span class="span-date">2021-2023</span> Master's Degree, Computer Software Engineering</p>
-            <p class="p-subsection">Grade: "Grande Distinction" (Magna Cum Laude)</p>
-            <p class="p-subsection">University of Namur</p>
-            <p class="p-section"><span class="span-date">2023</span> Master's Thesis Internship, Large Language Models and RESTful APIs</p>
-            <p class="p-subsection">Internship at the SnT research center during 4 months.</p>
-            <p class="p-subsection">University of Luxembourg</p>
-            <p class="p-section"><span class="span-date">2018-2021</span> Bachelor's Degree, Computer Science</p>
-            <p class="p-subsection">Grade: "Distinction" (Cum Laude)</p>
-            <p class="p-subsection">University of Namur</p>
-
-            <br>
-
-            <h2 id="h2-research" class="title-color">Research</h2>
-
-            <p class="p-section"><span class="span-date">2025</span> A Public Benchmark of REST APIs</p>
-            <p class="p-subsection">Alix Decrop, Sara Eraso, Xavier Devroey, Gilles Perrouin</p>
-            <p class="p-subsection">Technical Research Paper, MSR 25 - <a class="a-link" href="">Link</a></p>
-
-            <p class="p-section"><span class="span-date">2024</span> Leveraging Natural Language Processing and Data Mining to Augment and Validate APIs</p>
-            <p class="p-subsection">Alix Decrop</p>
-            <p class="p-subsection">Doctoral Symposium Paper, ISSTA 24 - <a class="a-link" href="https://dl.acm.org/doi/abs/10.1145/3650212.3685554">Link</a></p>
-
-            <p class="p-section"><span class="span-date">2024</span> You Can REST Now: Automated Specification Inference and Black-Box Testing of RESTful APIs with Large Language Models</p>
-            <p class="p-subsection">Alix Decrop, Gilles Perrouin, Mike Papadakis, Xavier Devroey, Pierre-Yves Schobbens</p>
-            <p class="p-subsection">Research Paper, arXiv - <a class="a-link" href="https://arxiv.org/abs/2402.05102">Link</a></p>
-
-            <p class="p-section"><span class="span-date">2023</span> Leveraging Large Language Models to Automatically Infer RESTful API Specifications</p>
-            <p class="p-subsection">Alix Decrop, Xavier Devroey (Promotor), Gilles Perrouin (Co-Promotor)</p>
-            <p class="p-subsection">Master's Thesis, University of Namur - <a class="a-link" href="https://pure.unamur.be/ws/portalfiles/portal/83487446">Link</a></p>
-
-            <br>
-
-            <h2 id="h2-awards" class="title-color">Awards</h2>
-
-            <p class="p-section"><span class="span-date">2024</span> Prize for the Best Master's Thesis in Computer Science, General Impact</p>
-
-            <p class="p-subsection">University of Namur</p>
         </div>
     </div>
-    <div class="bar-bottom">
-        &copy; 2025 Alix Decrop. All rights reserved. Website hosted on GitHub pages.
+
+    <div class="section">
+        <h2>About Me</h2>
+
+        <br>
+
+        <p>My name is Alix Decrop and I am currently working as a PhD Student (Researcher and Teaching Assistant) at the <a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a>. My work is twofold; I am researcher in Software Testing, Large Language Models and RESTful APIs. I am also a teaching assistant, my lectures being Syntax and Semantics, Algorithms and Programming Projects. Below, you can find information about myself such as my <a class="color-link hoverable" href="#experience">Experience</a>, <a class="color-link hoverable" href="#education">Education</a>, <a class="color-link hoverable" href="#research">Research</a>, and <a class="color-link hoverable" href="#awards">Awards</a>.</p>
+    </div>
+
+    <div class="section" id="experience">
+        <h2>Experience</h2>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2023-Present</span> PhD Student (Researcher and Teaching Assistant)</p>
+        <p class="color-descr">- Research: Software Testing, Large Language Models, RESTful APIs</p>
+        <p class="br-small color-descr">- Teaching: Syntax and Semantics, Algorithms, Programming Projects</p>
+        <p><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2024-2025</span> Web Chair for ISSTA'25</p>
+        <p class="br-small color-descr">Responsible for creating, updating, and maintaining the website of the conference.</p>
+        <p><a class="color-link hoverable" href="https://conf.researchr.org/home/issta-2025">International Symposium on Software Testing and Analysis (ISSTA'25)</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2024</span> Web Chair for BENEVOL'24</p>
+        <p class="br-small color-descr">Responsible for creating, updating, and maintaining the website of the workshop.</p>
+        <p><a class="color-link hoverable" href="https://benevol2024.github.io/">Belgium-Netherlands Software Evolution Workshop (BENEVOL'24)</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2017-2023</span> Tourist Informant (Student Job)</p>
+        <p class="br-small color-descr">Responsible for providing information about the local area to visitors.</p>
+        <p><a class="color-link hoverable" href="https://www.assessetourisme.be/">Tourism Office of Assesse</a></p>
+    </div>
+
+    <div class="section" id="education">
+        <h2>Education</h2>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2021-2023</span> Master's Degree, Computer Software Engineering</p>
+        <p class="br-small color-descr">Grade: "Grande Distinction" (Magna Cum Laude).</p>
+        <p><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2023</span> Master's Thesis Internship, Large Language Models and RESTful APIs</p>
+        <p class="br-small color-descr">Internship at the SnT research center during 4 months.</p>
+        <p><a class="color-link hoverable" href="https://www.uni.lu/snt-en/">Interdisciplinary Centre for Security, Reliability and Trust (SnT)</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2018-2021</span> Bachelor's Degree, Computer Science</p>
+        <p class="br-small color-descr">Grade: "Distinction" (Cum Laude).</p>
+        <p><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+    </div>
+
+    <div class="section" id="research">
+        <h2>Research</h2>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2025</span> A Public Benchmark of REST APIs <a class="color-link hoverable" href="https://pure.unamur.be/ws/portalfiles/portal/106749271/msr2025-technical-p115.pdf">PDF</a></p>
+        <p class="br-small color-descr">Alix Decrop, Sara Eraso, Xavier Devroey, Gilles Perrouin</p>
+        <p><a class="color-link hoverable" href="https://2025.msrconf.org/">Mining Software Repositories (MSR'25)</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2024</span> Leveraging Natural Language Processing and Data Mining to Augment and Validate APIs <a class="color-link hoverable" href="https://pure.unamur.be/ws/portalfiles/portal/101574626/decrop_alix_issta_24.pdf">PDF</a></p>
+        <p class="br-small color-descr">Alix Decrop</p>
+        <p><a class="color-link hoverable" href="https://conf.researchr.org/home/issta-2024">International Symposium on Software Testing and Analysis (ISSTA'24)</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2024</span> You Can REST Now: Automated Specification Inference and Black-Box Testing of RESTful APIs with Large Language Models <a class="color-link hoverable" href="https://arxiv.org/pdf/2402.05102">PDF</a></p>
+        <p class="br-small color-descr">Alix Decrop, Gilles Perrouin, Mike Papadakis, Xavier Devroey, Pierre-Yves Schobbens</p>
+        <p><a class="color-link hoverable" href="https://arxiv.org/">arXiv</a></p>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2023</span> Leveraging Large Language Models to Automatically Infer RESTful API Specifications <a class="color-link hoverable" href="https://pure.unamur.be/ws/portalfiles/portal/83487446/Alix_DECROP_1203881_assignsubmission_file_decrop_alix_master_thesis.pdf">PDF</a></p>
+        <p class="br-small color-descr">Alix Decrop, Xavier Devroey (Promotor), Gilles Perrouin (Co-Promotor)</p>
+        <p><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+    </div>
+
+    <div class="section" id="awards">
+        <h2>Awards</h2>
+
+        <br>
+
+        <p class="br-small"><span class="color-date">2024</span> Prize for the Best Master's Thesis in Computer Science, General Impact</p>
+        <p class="br-small color-descr">Award for my Master's Thesis.</p>
+        <p><a class="color-link hoverable" href="https://www.unamur.be/en">University of Namur</a></p>
+    </div>
+
+    <div class="footer">
+        <p class="center color-white font-small">&copy; 2025 Alix Decrop. Website hosted on GitHub pages.</p>
     </div>
 </body>
 </html>
