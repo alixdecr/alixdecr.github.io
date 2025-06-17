@@ -51,16 +51,16 @@ button:hover, input[type="submit"]:hover {
     cursor: pointer;
 }
 
+.bold {
+    font-weight: 600;
+}
+
 .br-small {
     margin-bottom: 0.3rem;
 }
 
 .center {
     text-align: center;
-}
-
-.color-descr {
-    color: rgb(67, 67, 67);
 }
 
 .color-date {
