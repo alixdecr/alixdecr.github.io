@@ -108,7 +108,10 @@ button:hover, input[type="submit"]:hover {
 }
 
 .intro {
-    background-color: rgb(43, 43, 43);
+    background-image: url("img/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .section {
