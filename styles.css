@@ -96,7 +96,7 @@ button:hover, input[type="submit"]:hover {
 .icons-contact {
     display: flex;
     justify-content: center;
-    gap: 2em;
+    gap: 2rem;
 }
 
 .img-profile {
@@ -116,6 +116,10 @@ button:hover, input[type="submit"]:hover {
 
 .section {
     padding: 2rem;
+}
+
+.space {
+    margin-right: 0.3rem;
 }
 
 @media (max-width: 767px) {
