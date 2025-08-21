@@ -61,6 +61,32 @@
 
     <h2>Expression Régulière</h2>
 
+    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation schématique de la structure des mots qui peuvent être générés pour un langage donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p><br>
+
+    <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p><br>
+
+    <p><b>Symbole</b> : une expression régulière peut simplement consister en une ou plusieurs suites de symboles de l'alphabet, indiquant que le mot généré contiendra ce ou ces symboles.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a</code> peut générer le mot <code>a</code>.</li>
+        <li>L'expression régulière <code>b</code> peut générer le mot <code>b</code>.</li>
+    </ul><br>
+
+    <p><b>"ET" logique</b> : une expression régulière peut contenir un "ET" logique, représenté par un point. Il indique qu'il faut concaténer la partie à gauche et la partie à droite du point pour générer un mot. Souvent, le point peut être omis.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a.b</code> peut générer le mot <code>ab</code>.</li>
+        <li>L'expression régulière <code>a.b.a</code> peut générer le mot <code>aba</code>.</li>
+    </ul><br>
+
+
+    <p><b>"OU" logique</b> : une expression régulière peut contenir un "OU" logique, représenté par un symbole <code>|</code> (pipe). Il indique qu'il faut choisir entre la partie à gauche et la partie à droite du pipe pour générer un mot.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a | b</code> peut générer soit le mot <code>a</code>, soit le mot <code>b</code>.</li>
+        <li>L'expression régulière <code>ab | b | baab</code> peut générer soit le mot <code>ab</code>, soit le mot <code>b</code>, soit le mot <code>baab</code>.</li>
+    </ul>
+
     <h2>Automate Fini</h2>
 </body>
 </html>
