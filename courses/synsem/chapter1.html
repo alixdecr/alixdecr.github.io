@@ -9,19 +9,58 @@
     <title>Chapitre 1</title>
 </head>
 <body>
-    <h1>Chapitre 1 : Les Langages Réguliers</h1>
+    <h1>Chapitre 1 : Langages Réguliers</h1>
 
-    <p>Dans ce premier chapitre, nous allons aborder les concepts suivants :</p>
+    <p><i>Dernière mise à jour : 21/08/2025 (Alix Decrop)</i></p><br><br>
+
+    <p>Dans ce premier chapitre, nous allons aborder les concepts suivants :</p><br>
 
     <ul>
-        <li>Langages finis</li>
-        <li>Langages réguliers</li>
-        <li>Expressions régulières (a.k.a regex)</li>
-        <li>Automates finis</li>
+        <li>Langage, syntaxe, sémantique</li>
+        <li>Langage fini</li>
+        <li>Langage régulier</li>
+        <li>Expression régulière (a.k.a regex)</li>
+        <li>Automate fini</li>
     </ul>
 
-    <p>Test</p>
+    <h2>Langage, Syntaxe, Sémantique</h2>
 
-    <h2>Langages Finis</h2>
+    <p>Un <b>langage</b> est un ensemble de mots, fini ou infini, qui peut être formé à partir d'un alphabet fini. Par exemple, la langue française est un langage permettant de représenter un ensemble de mots comme "chat", "chien", "maison", etc., ces mots étant formés à partir de l'alphabet romain.</p><br>
+
+    <p>La <b>syntaxe</b> est la <i>forme</i> ou la <i>structure</i> d'un langage. Elle définit un ensemble de règles permettant de construire des mots valides pour un langage donné. Par exemple, la syntaxe du langage de programmation Java permet de construire des mots représentant des variables avec la forme <code>int x = 5</code>.</p><br>
+
+    <p>La <b>sémantique</b> est le <i>sens</i> ou l'<i>interprétation</i> d'un langage. Elle définit ce que les mots d'un langage signifient. Par exemple, si l'on reprend le mot en Java <code>int x = 5</code>, la sémantique va s'assurer que la valeur à droite (<code>5</code>) correspond bien au type défini à gauche (<code>int</code>, un type entier).</p><br>
+
+    <div class="box info">Il se peut qu'un mot d'un langage soit syntaxiquement valide, mais sémantiquement invalide. Par exemple, le mot <code>int x = "test"</code> pourrait être syntaxiquement valide car il respecte la structure d'une déclaration de variable définie en Java. Cependant, ce mot serait sémantiquement invalide, car <code>"test"</code> est une chaîne de caractères (<code>String</code>) et non un entier (<code>int</code>). Donc, le type défini pour la variable <code>x</code> ne correspondrait pas au type de sa valeur.</div>
+
+    <h2>Langage Fini</h2>
+
+    <p>Un <b>langage fini</b> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p><br>
+
+    <p><code>{ le, la, les, chien, chat, bleu, rouge, ... }</code></p><br>
+
+    <p>Il est évident que cette représentation formelle est raccourcie, car il y a énormément de mots dans le langage français et ils ne peuvent pas tous être repris ici. Cependant, tant qu'un langage contient un ensemble fini (mais potentiellement énorme) de mots, il entre dans la catégorie des langages finis. De plus, nous pouvons également utiliser le même formalisme pour représenter l'alphabet d'un langage, avec un symbole <code>Σ</code> (sigma) représentant l'ensemble. Donc, on peut représenter l'alphabet du langage français de la façon suivante (les symboles de type "à", "é", "è" sont omis pour des raisons de simplicité) :</p><br>
+
+    <p><code>Σ = { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z }</code></p><br>
+
+    <p>Voici quelques autres exemples de langages finis :</p><br>
+
+    <ul>
+        <li>Le langage anglais, qui comprend également un ensemble fini de mots : <code>{ this, there, that, orange, apple, house, garden, ... }</code>.</li>
+        <li>Le langage <i>ChienChat</i>, un sous-ensemble du langage français qui comprend uniquement les mots "chien" et "chat" : <code>{ chien, chat }</code>.</li>
+        <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possible (<code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>).</li>
+    </ul><br>
+
+    <div class="box info">Les langages finis sont des sous-ensembles des langages réguliers. Un langage fini peut donc être représenté par une expression régulière ou un automate fini, et est donc également considéré comme un langage régulier.</div>
+
+    <h2>Langage Régulier</h2>
+
+    <p>Un <b>langage régulier</b> est un langage qui peut être représenté par une expression régulière ou un automate fini. Souvent, on prouve qu'un langage est régulier en le représentant par une de ces deux formes-ci.</p><br>
+
+    <div class="box info">Un langage régulier n'est pas nécessairement un langage fini. Ceci est dû au fait que les langages finis sont des sous-ensembles des langages réguliers, donc on peut très bien trouver un langage régulier qui n'est pas fini.</div>
+
+    <h2>Expression Régulière</h2>
+
+    <h2>Automate Fini</h2>
 </body>
 </html>
