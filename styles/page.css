@@ -120,8 +120,8 @@ button:hover, input[type="submit"]:hover {
 }
 
 .read {
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .section {
@@ -138,9 +138,9 @@ button:hover, input[type="submit"]:hover {
     }
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 1500px) {
     .read {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 20rem;
+        margin-right: 20rem;
     }
 }
