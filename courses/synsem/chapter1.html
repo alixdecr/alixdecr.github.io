@@ -11,7 +11,7 @@
 <body>
     <h1>Chapitre 1 : Langages Réguliers</h1>
 
-    <p><i>Dernière mise à jour : 21/08/2025 (Alix Decrop)</i></p><br><br>
+    <p><i>Dernière mise à jour : 22/08/2025 (Alix Decrop)</i></p><br><br>
 
     <p>Dans ce premier chapitre, nous allons aborder les concepts suivants :</p><br>
 
@@ -61,7 +61,7 @@
 
     <h2>Expression Régulière</h2>
 
-    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation schématique de la structure des mots qui peuvent être générés pour un langage donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p><br>
+    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p><br>
 
     <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p><br>
 
@@ -85,8 +85,71 @@
     <ul>
         <li>L'expression régulière <code>a | b</code> peut générer soit le mot <code>a</code>, soit le mot <code>b</code>.</li>
         <li>L'expression régulière <code>ab | b | baab</code> peut générer soit le mot <code>ab</code>, soit le mot <code>b</code>, soit le mot <code>baab</code>.</li>
+    </ul><br>
+
+    <p><b>Étoile de Kleene</b> : une expression régulière peut contenir une étoile de Kleene, représentée par un symbole <code>*</code> (asterisk). Elle indique que l'élément qui la précède peut être répété soit zero fois, soit plusieurs fois. Si l'étoile de Kleene d'une expression régulière est répétée zéro fois, l'expression régulière générera le mot vide : il est représenté par le symbole <code>ε</code> (epsilon). Une étoile de Kleene peut répéter plusieurs éléments s'ils sont mis entre parenthèses.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a*</code> peut générer une infinité de mots : <code>{ ε, a, aa, aaa, ..., aaaaaaa, ... }</code>. On n'oublie pas d'inclure le mot vide <code>ε</code> si l'élément précédant l'étoile de Kleene est répété zéro fois.</li>
+        <li>L'expression régulière <code>aba*</code> peut générer une infinité de mots : <code>{ ab, aba, abaa, abaaa, ..., abaaaaaa, ... }</code>. Ici, l'étoile de Kleene s'applique uniquement sur le dernier élément <code>a</code> de l'expression régulière. On remarque que le premier mot généré est <code>ab</code> et non <code>ab.ε</code> (ou <code>abε</code>). Ceci est dû au fait qu'on peut omettre le mot vide s'il est concaténé avec d'autres éléments qui ne sont pas vides.</li>
+    </ul><br>
+
+    <div class="box info">L'étoile de Kleene apporte le principe d'infinité aux expressions régulières ; Donc, une expression régulière contenant une étoile de Kleene ne pourra jamais faire partie d'un langage fini car on ne peut pas énumérer tous les mots du langage représenté.</div><br>
+
+    <p><b>Parenthèses</b> : une expression régulière peut contenir des parenthèses, permettant de regrouper des éléments ensemble.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>(ab | b).a</code> peut générer les mots <code>{ aba, ba }</code>. Il faut d'abord choisir entre <code>ab</code> ou <code>b</code> dans l'expression, et ensuite concaténer <code>a</code>.</li>
+        <li>L'expression régulière <code>(ab)*</code> peut générer une infinité de mots : <code>{ ε, ab, abab, ababab, ..., abababababab, ... }</code>. On remarque que l'étoile de Klenne s'applique sur tous les éléments entre parenthèses, et non uniquement sur le dernier élément.</li>
+        <li>L'expression régulière <code>(a | b)*</code> peut générer une infinité de mots : <code>{ ε, a, b, ab, ba, bbaabb, ... }</code>. Ici, à chaque fois qu'on répète une nouvelle fois l'étoile de Kleene, on peut re-choisir entre <code>a</code> ou <code>b</code>.</li>
+    </ul><br>
+
+    <p><b>Symbole +</b> : similaire à l'étoile de Kleene, indique que l'élément qui précède peut être répété soit une fois, soit plusieurs fois. Vu que l'élément ne peut pas être répété zéro fois, le mot vide ne fera pas partie des mots générés.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>b+</code> peut générer une infinité de mots : <code>{ b, bb, bbb, ..., bbbbbbb, ... }</code>.</li>
+        <li>L'expression régulière <code>(bab)+</code> peut générer une infinité de mots : <code>{ bab, babbab, ... }</code>.</li>
+    </ul><br>
+
+    <p><b>Symbole ?</b> : indique que l'élément qui précède peut être répété soit zéro fois, soit une fois. L'élément ne peut pas être répété plusieurs fois ici.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a?</code> peut générer les mots <code>{ ε, a }</code>. Vu que l'ensemble des mots généré est fini, le langage représenté par cette expression régulière est donc un langage fini.</li>
+        <li>L'expression régulière <code>(bb)?a*</code> peut générer une infinité de mots : <code>{ ε, bb, bba, a, bbaaaa, aaaaaaaa, ... }</code>.</li>
+    </ul><br>
+
+    <p><b>Exposant</b> : indique le nombre de fois qu'un élément est répété. Si une portée est indiquée, l'élément peut être répété entre les valeurs de la portée.</p><br>
+
+    <ul>
+        <li>L'expression régulière <code>a^3</code> peut générér le mot <code>aaa</code>.</li>
+        <li>L'expression régulière <code>a^[2-5]</code> peut générér les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparait entre <code>2</code> et <code>5</code> fois".</li>
     </ul>
 
     <h2>Automate Fini</h2>
+
+    <p>Un <b>automate fini</b> est une représentation schématique d'un langage régulier. Il s'articule autour d'<i>états</i> et de <i>transitions</i>, ces dernières permettant de passer d'un état à un autre. Un automate fini contient un et un seul état dit <i>initial</i>, et au moins un état dit <i>final</i>.</p><br>
+
+    <p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on aimerait représenter le langage <i>ab</i>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p><br>
+
+    <img class="image" src="../../images/automaton1.png" alt="Image"><br><br>
+
+    <p>On remarque plusieurs éléments :</p><br>
+
+    <ul>
+        <li>L'état initial à gauche (E0), représenté par un cercle et une flèche entrante. C'est à partir de cet état qu'il faut "entrer" dans l'automate, lorsqu'on commence à lire un mot.</li>
+        <li>L'état final à droite (E2), représenté par un double cercle. C'est à partir de cet état qu'il faut "sortir" de l'automate, lorsqu'on a terminé de lire un mot.</li>
+        <li>Un autre état (E1), permettant de transitionner entre l'état initial (E0) et l'état final (E2).</li>
+        <li>Des transitions (a et b), permettant de passer d'un état à un autre.</li>
+    </ul><br>
+
+    <p>Donc, pour lire un mot au travers de cet automate, on entre par l'état initial E0. Ensuite, on lit un caractère "a" et on passe vers l'état E1. Étant à présent dans l'état E1, on peut encore lire un caractère "b" et on passe vers l'état E2. Vu que l'état est final et qu'il n'y a pas d'autres transitions <i>sortantes</i>, on a terminé de lire le mot et on peut sortir de l'automate. Ayant lu un "a" et puis un "b", on les concatène pour former le mot "ab".</p><br>
+
+    <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des mots qui commencent et terminent par "a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p><br>
+
+    <img class="image" src="../../images/automaton2.png" alt="Image"><br><br>
+
+    <p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code>.</p><br>
+
+    <div class="box info">Vu qu'un automate fini permet de prouver qu'un langage est régulier, tout automate fini peut être représenté par une expression régulière (et inversement).</div><br>
 </body>
 </html>
