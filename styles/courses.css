@@ -41,12 +41,27 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
+h3 {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
 p {
     line-height: 1.5;
 }
 
 code {
     color: rgb(180, 0, 0);
+}
+
+details {
+    background-color: rgb(236, 236, 236);
+    padding: 0.5rem;
+}
+
+details[open] summary {
+    color: rgb(0, 140, 255);
+    margin-bottom: 1rem;
 }
 
 .box {
