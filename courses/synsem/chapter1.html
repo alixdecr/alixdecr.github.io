@@ -252,54 +252,55 @@
         <summary>Le langage des nombres impairs en représentation binaire.</summary>
         <p>Un nombre binaire est impair si son dernier chiffre est un "1".</p><br>
         <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement :</p><br>
-        <p><code>{01, 011, 101, 111, 1001, ...}</code></p><br>
+        <p><code>{ 01, 011, 101, 111, 1001, ... }</code></p><br>
         <p>Le langage est régulier, car on peut trouver une expression régulière :</p><br>
         <p><code>(0|1)*1</code></p>
     </details><br>
 
     <details>
         <summary>Le langage des mots présents dans les livres de Victor Hugo, qui sont codés en morse.</summary>
-        <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{le, la, les, misérables, ...}</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p><br>
+        <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p><br>
         <p>Le langage est également régulier, car il est fini. Une expression régulière du langage consiste en un "OU" de tous les mots des livres : <code>le|la|les|misérables|...</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots d'au moins deux symboles.</summary>
-        <p>Soit les symboles 0 et 1, on trouve la regex <code>(00|11|01|10).(0|1)*</code> OU <code>(0|1).(0|1).(0|1)*</code> OU <code>(0|1)(0|1)+</code></p><br>
-        <p>Langage non fini, langage régulier</p>
+        <p>Le langage n'est pas fini, car il n'y a pas de borne supérieure sur la taille des mots.</p><br>
+        <p>Le langage est régulier, car on peut trouver une expression régulière pour le représenter : <code>(00|11|01|10).(0|1)*</code>, ou bien <code>(0|1).(0|1).(0|1)*</code>, ou bien <code>(0|1)(0|1)+</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots de taille 3 qui commencent et finissent par le même symbole.</summary>
-        <p>Ensemble fini <code>{000, 010, 101, 111}</code> donc langage fini et régulier</p>
+        <p>Le langage est fini (et donc régulier), car on peut énumérer l'ensemble des mots : <code>{ 000, 010, 101, 111 }</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots qui commencent et finissent par "1" et qui contiennent exactement trois "1".</summary>
-        <p>Langage non fini mais regex <code>1.0*.1.0*.1</code> donc langage régulier</p>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "0" entre les trois "1" d'un mot.</p><br>
+        <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1.0*.1.0*.1</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots qui ne contiennent aucun "0".</summary>
-        <p>Langage non fini, regex <code>1*</code> donc langage régulier</p>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "1".</p><br>
+        <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1*</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots qui contiennent exactement deux fois chaque symbole de l'alphabet défini.</summary>
-        <p>Ensemble fini <code>{0011, 1100, 0101, 1010, 0110, 1001}</code>, donc langage fini et régulier</p>
+        <p>Le langage est fini (et donc également régulier), car on peut énumérer l'ensemble des mots : <code>{ 0011, 1100, 0101, 1010, 0110, 1001 }</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots qui commencent et finissent par le même symbole.</summary>
-        <p>Langage non fini, regex <code>(0.(0|1)*.0) | (1.(0|1)*.1)</code> donc langage régulier</p>
+        <p>Le langage n'est pas fini, car entre le premier et le dernier caractère du mot il peut y avoir une infinité d'autres caractères.</p><br>
+        <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>(0.(0|1)*.0) | (1.(0|1)*.1)</code>.</p>
     </details><br>
 
     <details>
         <summary>Le langage des mots qui ont un nombre impair de "1".</summary>
-        <p>Regex : <code>0* 1 (0* 1 0* 1 0*)* 0*</code></p><br>
-        <p>Car impair, on aura toujours un premier 1, suivi d'un nombre de 1 en double</p><br>
-        <p>Langage régulier</p><br>
-        <p>L'automate est + facile à trouver</p>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de mots avec un nombre impair de "1".</p><br>
+        <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>0* 1 (0* 1 0* 1 0*)* 0*</code>. La logique est que dans un mot avec un nombre impair de "1", on aura toujours un premier "1" suivi d'un nombre pair de "1". Dans ce cas-ci, l'automate fini du langage est plus intuitif à trouver : à faire en exercice !</p>
     </details><br>
 </body>
 </html>
