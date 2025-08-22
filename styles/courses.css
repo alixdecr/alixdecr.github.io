@@ -87,3 +87,10 @@ details[open] summary {
     border: 2px solid black;
     width: 40rem;
 }
+
+@media (max-width: 767px) {
+    body {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
