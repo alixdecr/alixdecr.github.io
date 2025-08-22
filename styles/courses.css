@@ -6,6 +6,15 @@
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(0, 140, 255);
+}
+
+a:hover {
+    color: blue;
+}
+
 body {
     margin-left: 5rem;
     margin-right: 5rem;
@@ -15,7 +24,7 @@ code {
     font-family: monospace;
 }
 
-ul {
+ul, ol {
     margin-left: 1.5rem;
 }
 
