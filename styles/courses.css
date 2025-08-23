@@ -84,3 +84,15 @@ img {
     border-radius: 15px;
     padding: 0.5rem;
 }
+
+.license {
+    border: 1px solid black;
+    margin-top: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.license img {
+    margin: 0;
+    width: 150px;
+}
