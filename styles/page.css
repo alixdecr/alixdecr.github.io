@@ -1,110 +1,26 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: black;
 }
 
 html {
-    font-size: 20px;
-    width: 100%;
-    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-head, title, meta {
-    display: none;
+body {
+    color: rgb(25, 25, 25);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-ul {
-    list-style: none;
-}
-
-a, button, input, textarea {
-    font-family: inherit;
-    border: none;
-    background: none;
-    outline: none;
+a {
+    color: rgb(0, 140, 255);
     text-decoration: none;
 }
 
-textarea {
-    resize: none;
-}
-
-button:hover, input[type="submit"]:hover {
-    cursor: pointer;
-}
-
-.bold {
-    font-weight: 600;
-}
-
-.br-small {
-    margin-bottom: 0.3rem;
-}
-
-.center {
-    text-align: center;
-}
-
-.color-date {
-    color: rgb(151, 0, 118);
-}
-
-.color-link {
-    color: rgb(65, 163, 255);
-}
-
-.color-white {
-    color: white;
-}
-
-.font-small {
-    font-size: 0.8rem;
-}
-
-.footer {
-    width: 100%;
-    background-color: black;
-    padding: 0.5rem;
-}
-
-.hoverable {
-    transition: color 0.3s;
-}
-
-.hoverable:hover {
-    color: gray;
-}
-
-.icons-contact {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.img-profile {
-    border: 4px solid white;
-    border-radius: 50%;
-    display: block;
-    margin: auto;
-    width: 12rem;
+a:hover {
+    color: blue;
 }
 
 .intro {
@@ -112,35 +28,74 @@ button:hover, input[type="submit"]:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    color: white;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.line-under {
-    padding-bottom: 1rem;
-    border-bottom: 2px solid black;
+.intro h1 {
+    font-size: 3rem;
 }
 
-.read {
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+.intro p {
+    font-size: 1.2rem;
 }
 
-.section {
-    padding: 2rem;
+.intro img {
+    border: 4px solid white;
+    border-radius: 50%;
+    max-width: min(250px, 80%)
 }
 
-.space {
-    margin-right: 0.3rem;
+.intro-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
-@media (max-width: 767px) {
-    html {
-        font-size: 16px;
-    }
+.content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    padding: 0 1rem;
 }
 
-@media (min-width: 1500px) {
-    .read {
-        margin-left: 20rem;
-        margin-right: 20rem;
-    }
+.content p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.content hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.entry {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.entry p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.date {
+    color: rgb(151, 0, 118);
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
 }
