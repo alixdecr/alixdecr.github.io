@@ -52,7 +52,7 @@
     <ul>
         <li>Le langage anglais, qui comprend également un ensemble fini de mots : <code>{ this, there, that, orange, apple, house, garden, ... }</code>.</li>
         <li>Le langage <i>ChienChat</i>, un sous-ensemble du langage français qui comprend uniquement les mots "chien" et "chat" : <code>{ chien, chat }</code>.</li>
-        <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possible (<code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>).</li>
+        <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possible : <code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>.</li>
     </ul>
 
     <p class="info">Les langages finis sont des sous-ensembles des langages réguliers. Un langage fini peut donc être représenté par une expression régulière ou un automate fini, et est donc également considéré comme un langage régulier.</p>
@@ -69,7 +69,7 @@
 
     <h2 id="expression-reguliere">Expression Régulière</h2>
 
-    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p>
+    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (<i>regular expression</i> en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p>
 
     <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p>
 
