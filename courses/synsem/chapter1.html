@@ -11,9 +11,9 @@
 <body>
     <h1>Chapitre 1 : Langages Réguliers</h1>
 
-    <p><i>Dernière mise à jour : 22/08/2025 (Alix Decrop)</i></p><br><br>
+    <p><i>Dernière mise à jour : 22/08/2025 (Alix Decrop)</i></p>
 
-    <p><b>Table des Matières</b></p><br>
+    <p><b>Table des Matières</b></p>
 
     <ol>
         <li><a href="#langages-syntaxe-semantique">Langage, Syntaxe, Sémantique</a></li>
@@ -27,138 +27,142 @@
 
     <h2 id="langages-syntaxe-semantique">Langage, Syntaxe, Sémantique</h2>
 
-    <p>Un <b>langage</b> est un ensemble de mots, fini ou infini, qui peut être formé à partir d'un alphabet fini. Par exemple, la langue française est un langage permettant de représenter un ensemble de mots comme "chat", "chien", "maison", etc., ces mots étant formés à partir de l'alphabet romain.</p><br>
+    <p>Un <b>langage</b> est un ensemble de mots, fini ou infini, qui peut être formé à partir d'un alphabet fini. Par exemple, la langue française est un langage permettant de représenter un ensemble de mots comme "chat", "chien", "maison", etc., ces mots étant formés à partir de l'alphabet romain.</p>
 
-    <p>La <b>syntaxe</b> est la <i>forme</i> ou la <i>structure</i> d'un langage. Elle définit un ensemble de règles permettant de construire des mots valides pour un langage donné. Par exemple, la syntaxe du langage de programmation Java permet de construire des mots représentant des variables avec la forme <code>int x = 5</code>.</p><br>
+    <p>La <b>syntaxe</b> est la <i>forme</i> ou la <i>structure</i> d'un langage. Elle définit un ensemble de règles permettant de construire des mots valides pour un langage donné. Par exemple, la syntaxe du langage de programmation Java permet de construire des mots représentant des variables avec la forme <code>int x = 5</code>.</p>
 
-    <p>La <b>sémantique</b> est le <i>sens</i> ou l'<i>interprétation</i> d'un langage. Elle définit ce que les mots d'un langage signifient. Par exemple, si l'on reprend le mot en Java <code>int x = 5</code>, la sémantique va s'assurer que la valeur à droite (<code>5</code>) correspond bien au type défini à gauche (<code>int</code>, un type entier).</p><br>
+    <p>La <b>sémantique</b> est le <i>sens</i> ou l'<i>interprétation</i> d'un langage. Elle définit ce que les mots d'un langage signifient. Par exemple, si l'on reprend le mot en Java <code>int x = 5</code>, la sémantique va s'assurer que la valeur à droite (<code>5</code>) correspond bien au type défini à gauche (<code>int</code>, un type entier).</p>
 
-    <div class="box info">Il se peut qu'un mot d'un langage soit syntaxiquement valide, mais sémantiquement invalide. Par exemple, le mot <code>int x = "test"</code> pourrait être syntaxiquement valide car il respecte la structure d'une déclaration de variable définie en Java. Cependant, ce mot serait sémantiquement invalide, car <code>"test"</code> est une chaîne de caractères (<code>String</code>) et non un entier (<code>int</code>). Donc, le type défini pour la variable <code>x</code> ne correspondrait pas au type de sa valeur.</div>
+    <p class="info">Il se peut qu'un mot d'un langage soit syntaxiquement valide, mais sémantiquement invalide. Par exemple, le mot <code>int x = "test"</code> pourrait être syntaxiquement valide car il respecte la structure d'une déclaration de variable définie en Java. Cependant, ce mot serait sémantiquement invalide, car <code>"test"</code> est une chaîne de caractères (<code>String</code>) et non un entier (<code>int</code>). Donc, le type défini pour la variable <code>x</code> ne correspondrait pas au type de sa valeur.</p>
 
+    <hr>
 
     <h2 id="langage-fini">Langage Fini</h2>
 
-    <p>Un <b>langage fini</b> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p><br>
+    <p>Un <b>langage fini</b> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p>
 
-    <p><code>{ le, la, les, chien, chat, bleu, rouge, ... }</code></p><br>
+    <p><code>{ le, la, les, chien, chat, bleu, rouge, ... }</code></p>
 
-    <p>Il est évident que cette représentation formelle est raccourcie, car il y a énormément de mots dans le langage français et ils ne peuvent pas tous être repris ici. Cependant, tant qu'un langage contient un ensemble fini (mais potentiellement énorme) de mots, il entre dans la catégorie des langages finis. De plus, nous pouvons également utiliser le même formalisme pour représenter l'alphabet d'un langage, avec un symbole <code>Σ</code> (sigma) représentant l'ensemble. Donc, on peut représenter l'alphabet du langage français de la façon suivante (les symboles de type "à", "é", "è" sont omis pour des raisons de simplicité) :</p><br>
+    <p>Il est évident que cette représentation formelle est raccourcie, car il y a énormément de mots dans le langage français et ils ne peuvent pas tous être repris ici. Cependant, tant qu'un langage contient un ensemble fini (mais potentiellement énorme) de mots, il entre dans la catégorie des langages finis. De plus, nous pouvons également utiliser le même formalisme pour représenter l'alphabet d'un langage, avec un symbole <code>Σ</code> (sigma) représentant l'ensemble. Donc, on peut représenter l'alphabet du langage français de la façon suivante (les symboles de type "à", "é", "è" sont omis pour des raisons de simplicité) :</p>
 
-    <p><code>Σ = { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z }</code></p><br>
+    <p><code>Σ = { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z }</code></p>
 
-    <p>Voici quelques autres exemples de langages finis :</p><br>
+    <p>Voici quelques autres exemples de langages finis :</p>
 
     <ul>
         <li>Le langage anglais, qui comprend également un ensemble fini de mots : <code>{ this, there, that, orange, apple, house, garden, ... }</code>.</li>
         <li>Le langage <i>ChienChat</i>, un sous-ensemble du langage français qui comprend uniquement les mots "chien" et "chat" : <code>{ chien, chat }</code>.</li>
         <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possible (<code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>).</li>
-    </ul><br>
+    </ul>
 
-    <div class="box info">Les langages finis sont des sous-ensembles des langages réguliers. Un langage fini peut donc être représenté par une expression régulière ou un automate fini, et est donc également considéré comme un langage régulier.</div>
+    <p class="info">Les langages finis sont des sous-ensembles des langages réguliers. Un langage fini peut donc être représenté par une expression régulière ou un automate fini, et est donc également considéré comme un langage régulier.</p>
 
+    <hr>
 
     <h2 id="langage-regulier">Langage Régulier</h2>
 
-    <p>Un <b>langage régulier</b> est un langage qui peut être représenté par une expression régulière ou un automate fini. Souvent, on prouve qu'un langage est régulier en le représentant par une de ces deux formes-ci.</p><br>
+    <p>Un <b>langage régulier</b> est un langage qui peut être représenté par une expression régulière ou un automate fini. Souvent, on prouve qu'un langage est régulier en le représentant par une de ces deux formes-ci.</p>
 
-    <div class="box info">Un langage régulier n'est pas nécessairement un langage fini. Ceci est dû au fait que les langages finis sont des sous-ensembles des langages réguliers, donc on peut très bien trouver un langage régulier qui n'est pas fini.</div>
+    <p class="info">Un langage régulier n'est pas nécessairement un langage fini. Ceci est dû au fait que les langages finis sont des sous-ensembles des langages réguliers, donc on peut très bien trouver un langage régulier qui n'est pas fini.</p>
 
+    <hr>
 
     <h2 id="expression-reguliere">Expression Régulière</h2>
 
-    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p><br>
+    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (regular expression en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p>
 
-    <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p><br>
+    <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p>
 
-    <p><b>Symbole</b> : une expression régulière peut simplement consister en une ou plusieurs suites de symboles de l'alphabet, indiquant que le mot généré contiendra ce ou ces symboles.</p><br>
+    <p><b>Symbole</b> : une expression régulière peut simplement consister en une ou plusieurs suites de symboles de l'alphabet, indiquant que le mot généré contiendra ce ou ces symboles.</p>
 
     <ul>
         <li>L'expression régulière <code>a</code> peut générer le mot <code>a</code>.</li>
         <li>L'expression régulière <code>b</code> peut générer le mot <code>b</code>.</li>
-    </ul><br>
+    </ul>
 
-    <p><b>"ET" logique</b> : une expression régulière peut contenir un "ET" logique, représenté par un point. Il indique qu'il faut concaténer la partie à gauche et la partie à droite du point pour générer un mot. Souvent, le point peut être omis.</p><br>
+    <p><b>"ET" logique</b> : une expression régulière peut contenir un "ET" logique, représenté par un point. Il indique qu'il faut concaténer la partie à gauche et la partie à droite du point pour générer un mot. Souvent, le point peut être omis.</p>
 
     <ul>
         <li>L'expression régulière <code>a.b</code> peut générer le mot <code>ab</code>.</li>
         <li>L'expression régulière <code>a.b.a</code> peut générer le mot <code>aba</code>.</li>
-    </ul><br>
+    </ul>
 
 
-    <p><b>"OU" logique</b> : une expression régulière peut contenir un "OU" logique, représenté par un symbole <code>|</code> (pipe). Il indique qu'il faut choisir entre la partie à gauche et la partie à droite du pipe pour générer un mot.</p><br>
+    <p><b>"OU" logique</b> : une expression régulière peut contenir un "OU" logique, représenté par un symbole <code>|</code> (pipe). Il indique qu'il faut choisir entre la partie à gauche et la partie à droite du pipe pour générer un mot.</p>
 
     <ul>
         <li>L'expression régulière <code>a | b</code> peut générer soit le mot <code>a</code>, soit le mot <code>b</code>.</li>
         <li>L'expression régulière <code>ab | b | baab</code> peut générer soit le mot <code>ab</code>, soit le mot <code>b</code>, soit le mot <code>baab</code>.</li>
-    </ul><br>
+    </ul>
 
-    <p><b>Étoile de Kleene</b> : une expression régulière peut contenir une étoile de Kleene, représentée par un symbole <code>*</code> (asterisk). Elle indique que l'élément qui la précède peut être répété soit zero fois, soit plusieurs fois. Si l'étoile de Kleene d'une expression régulière est répétée zéro fois, l'expression régulière générera le mot vide : il est représenté par le symbole <code>ε</code> (epsilon). Une étoile de Kleene peut répéter plusieurs éléments s'ils sont mis entre parenthèses.</p><br>
+    <p><b>Étoile de Kleene</b> : une expression régulière peut contenir une étoile de Kleene, représentée par un symbole <code>*</code> (asterisk). Elle indique que l'élément qui la précède peut être répété soit zero fois, soit plusieurs fois. Si l'étoile de Kleene d'une expression régulière est répétée zéro fois, l'expression régulière générera le mot vide : il est représenté par le symbole <code>ε</code> (epsilon). Une étoile de Kleene peut répéter plusieurs éléments s'ils sont mis entre parenthèses.</p>
 
     <ul>
         <li>L'expression régulière <code>a*</code> peut générer une infinité de mots : <code>{ ε, a, aa, aaa, ..., aaaaaaa, ... }</code>. On n'oublie pas d'inclure le mot vide <code>ε</code> si l'élément précédant l'étoile de Kleene est répété zéro fois.</li>
         <li>L'expression régulière <code>aba*</code> peut générer une infinité de mots : <code>{ ab, aba, abaa, abaaa, ..., abaaaaaa, ... }</code>. Ici, l'étoile de Kleene s'applique uniquement sur le dernier élément <code>a</code> de l'expression régulière. On remarque que le premier mot généré est <code>ab</code> et non <code>ab.ε</code> (ou <code>abε</code>). Ceci est dû au fait qu'on peut omettre le mot vide s'il est concaténé avec d'autres éléments qui ne sont pas vides.</li>
-    </ul><br>
+    </ul>
 
-    <div class="box info">L'étoile de Kleene apporte le principe d'infinité aux expressions régulières ; Donc, une expression régulière contenant une étoile de Kleene ne pourra jamais faire partie d'un langage fini car on ne peut pas énumérer tous les mots du langage représenté.</div><br>
+    <p class="info">L'étoile de Kleene apporte le principe d'infinité aux expressions régulières ; Donc, une expression régulière contenant une étoile de Kleene ne pourra jamais faire partie d'un langage fini car on ne peut pas énumérer tous les mots du langage représenté.</p>
 
-    <p><b>Parenthèses</b> : une expression régulière peut contenir des parenthèses, permettant de regrouper des éléments ensemble.</p><br>
+    <p><b>Parenthèses</b> : une expression régulière peut contenir des parenthèses, permettant de regrouper des éléments ensemble.</p>
 
     <ul>
         <li>L'expression régulière <code>(ab | b).a</code> peut générer les mots <code>{ aba, ba }</code>. Il faut d'abord choisir entre <code>ab</code> ou <code>b</code> dans l'expression, et ensuite concaténer <code>a</code>.</li>
         <li>L'expression régulière <code>(ab)*</code> peut générer une infinité de mots : <code>{ ε, ab, abab, ababab, ..., abababababab, ... }</code>. On remarque que l'étoile de Klenne s'applique sur tous les éléments entre parenthèses, et non uniquement sur le dernier élément.</li>
         <li>L'expression régulière <code>(a | b)*</code> peut générer une infinité de mots : <code>{ ε, a, b, ab, ba, bbaabb, ... }</code>. Ici, à chaque fois qu'on répète une nouvelle fois l'étoile de Kleene, on peut re-choisir entre <code>a</code> ou <code>b</code>.</li>
-    </ul><br>
+    </ul>
 
-    <p><b>Symbole +</b> : similaire à l'étoile de Kleene, indique que l'élément qui précède peut être répété soit une fois, soit plusieurs fois. Vu que l'élément ne peut pas être répété zéro fois, le mot vide ne fera pas partie des mots générés.</p><br>
+    <p><b>Symbole +</b> : similaire à l'étoile de Kleene, indique que l'élément qui précède peut être répété soit une fois, soit plusieurs fois. Vu que l'élément ne peut pas être répété zéro fois, le mot vide ne fera pas partie des mots générés.</p>
 
     <ul>
         <li>L'expression régulière <code>b+</code> peut générer une infinité de mots : <code>{ b, bb, bbb, ..., bbbbbbb, ... }</code>.</li>
         <li>L'expression régulière <code>(bab)+</code> peut générer une infinité de mots : <code>{ bab, babbab, ... }</code>.</li>
-    </ul><br>
+    </ul>
 
-    <p><b>Symbole ?</b> : indique que l'élément qui précède peut être répété soit zéro fois, soit une fois. L'élément ne peut pas être répété plusieurs fois ici.</p><br>
+    <p><b>Symbole ?</b> : indique que l'élément qui précède peut être répété soit zéro fois, soit une fois. L'élément ne peut pas être répété plusieurs fois ici.</p>
 
     <ul>
         <li>L'expression régulière <code>a?</code> peut générer les mots <code>{ ε, a }</code>. Vu que l'ensemble des mots généré est fini, le langage représenté par cette expression régulière est donc un langage fini.</li>
         <li>L'expression régulière <code>(bb)?a*</code> peut générer une infinité de mots : <code>{ ε, bb, bba, a, bbaaaa, aaaaaaaa, ... }</code>.</li>
-    </ul><br>
+    </ul>
 
-    <p><b>Exposant</b> : indique le nombre de fois qu'un élément est répété. Si une portée est indiquée, l'élément peut être répété entre les valeurs de la portée.</p><br>
+    <p><b>Exposant</b> : indique le nombre de fois qu'un élément est répété. Si une portée est indiquée, l'élément peut être répété entre les valeurs de la portée.</p>
 
     <ul>
         <li>L'expression régulière <code>a^3</code> peut générér le mot <code>aaa</code>.</li>
         <li>L'expression régulière <code>a^[2-5]</code> peut générér les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparait entre <code>2</code> et <code>5</code> fois".</li>
     </ul>
 
+    <hr>
 
     <h2 id="automate-fini">Automate Fini</h2>
 
-    <p>Un <b>automate fini</b> est une représentation schématique d'un langage régulier. Il s'articule autour d'<i>états</i> et de <i>transitions</i>, ces dernières permettant de passer d'un état à un autre. Un automate fini contient un et un seul état dit <i>initial</i>, et au moins un état dit <i>final</i>.</p><br>
+    <p>Un <b>automate fini</b> est une représentation schématique d'un langage régulier. Il s'articule autour d'<i>états</i> et de <i>transitions</i>, ces dernières permettant de passer d'un état à un autre. Un automate fini contient un et un seul état dit <i>initial</i>, et au moins un état dit <i>final</i>.</p>
 
-    <p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on aimerait représenter le langage <i>ab</i>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p><br>
+    <p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on aimerait représenter le langage <i>ab</i>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p>
 
-    <img class="image" src="../../images/automaton1.png" alt="Image"><br><br>
+    <img class="image" src="../../images/automaton1.png" alt="Image">
 
-    <p>On remarque plusieurs éléments :</p><br>
+    <p>On remarque plusieurs éléments :</p>
 
     <ul>
         <li>L'état initial à gauche (E0), représenté par un cercle et une flèche entrante. C'est à partir de cet état qu'il faut "entrer" dans l'automate, lorsqu'on commence à lire un mot.</li>
         <li>L'état final à droite (E2), représenté par un double cercle. C'est à partir de cet état qu'il faut "sortir" de l'automate, lorsqu'on a terminé de lire un mot.</li>
         <li>Un autre état (E1), permettant de transitionner entre l'état initial (E0) et l'état final (E2).</li>
         <li>Des transitions (a et b), permettant de passer d'un état à un autre.</li>
-    </ul><br>
+    </ul>
 
-    <p>Donc, pour lire un mot au travers de cet automate, on entre par l'état initial E0. Ensuite, on lit un caractère "a" et on passe vers l'état E1. Étant à présent dans l'état E1, on peut encore lire un caractère "b" et on passe vers l'état E2. Vu que l'état est final et qu'il n'y a pas d'autres transitions <i>sortantes</i>, on a terminé de lire le mot et on peut sortir de l'automate. Ayant lu un "a" et puis un "b", on les concatène pour former le mot "ab".</p><br>
+    <p>Donc, pour lire un mot au travers de cet automate, on entre par l'état initial E0. Ensuite, on lit un caractère "a" et on passe vers l'état E1. Étant à présent dans l'état E1, on peut encore lire un caractère "b" et on passe vers l'état E2. Vu que l'état est final et qu'il n'y a pas d'autres transitions <i>sortantes</i>, on a terminé de lire le mot et on peut sortir de l'automate. Ayant lu un "a" et puis un "b", on les concatène pour former le mot "ab".</p>
 
-    <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des mots qui commencent et terminent par "a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p><br>
+    <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des mots qui commencent et terminent par "a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p>
 
-    <img class="image" src="../../images/automaton2.png" alt="Image"><br><br>
+    <img class="image" src="../../images/automaton2.png" alt="Image">
 
-    <p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code>.</p><br>
+    <p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code>.</p>
 
-    <div class="box info">Vu qu'un automate fini permet de prouver qu'un langage est régulier, tout automate fini peut être représenté par une expression régulière (et inversement).</div><br>
+    <p>Vu qu'un automate fini permet de prouver qu'un langage est régulier, tout automate fini peut être représenté par une expression régulière (et inversement).</p>
 
-    <p>Il existe plusieurs propriétés pour les automates finis :</p><br>
+    <p>Il existe plusieurs propriétés pour les automates finis :</p>
 
     <ul>
         <li><b>Déterministe</b> : un automate fini est dit déterministe si pour tout état, il n'existe pas plusieurs fois la même transition partant d'un même état.</li>
@@ -166,56 +170,57 @@
         <li><b>Minimal</b> : un automate fini est dit minimal s'il contient un nombre minimal d'états.</li>
         <li><b>Complet</b> : un automate fini est dit complet s'il définit de chaque état une transition pour chaque symbole de l'alphabet utilisé.</li>
         <li><b>Complément</b> : le complément d'un automate fini (étant déterministe et complet) est obtenu en remplacant ses états finaux par des états non-finaux, et inversement.</li>
-    </ul><br>
+    </ul>
 
-    <div class="box info">Le complément d'un langage régulier est toujours régulier. Si un langage n'est pas régulier, il ne peut pas être représenté par un automate fini (ou une expression régulière), et donc son complément non plus.</div>
+    <p class="info">Le complément d'un langage régulier est toujours régulier. Si un langage n'est pas régulier, il ne peut pas être représenté par un automate fini (ou une expression régulière), et donc son complément non plus.</p>
 
+    <hr>
 
     <h2 id="exercices">Exercices</h2>
 
     <h3>Vrai ou Faux ?</h3>
 
-    <p>Pour chacune des affirmations suivantes, déterminez si elles sont vraies ou fausses et justifiez.</p><br>
+    <p>Pour chacune des affirmations suivantes, déterminez si elles sont vraies ou fausses et justifiez.</p>
 
     <details>
         <summary>Si la sémantique d'un mot est invalide, alors sa syntaxe l'est aussi.</summary>
         <p>Faux</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>L'alphabet utilisé par un langage peut être infini.</summary>
         <p>Faux</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>L'ensemble des mots d'un langage peut être infini.</summary>
         <p>Vrai</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Tous les mots d'un langage régulier peuvent être énumérés exhaustivement.</summary>
         <p>Faux</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Tout langage fini est régulier.</summary>
         <p>Vrai</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Il se peut qu'un langage régulier ne soit pas fini.</summary>
         <p>Vrai</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Si l'on peut représenter un langage avec une expression régulière, alors il est fini.</summary>
         <p>Faux</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Tout langage fini peut être représenté par une expression régulière.</summary>
         <p>Vrai</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>On ne peut pas représenter un langage régulier avec un automate fini.</summary>
@@ -224,83 +229,83 @@
 
     <h3>Classification de Langages</h3>
 
-    <p>Soit les langages suivants définis sur l'alphabet <code>Σ = { 0, 1 }</code>. Déterminez si ce sont des langages réguliers et/ou finis. Utilisez les ensembles, expressions régulières, ou automates finis pour justifier vos réponses.</p><br>
+    <p>Soit les langages suivants définis sur l'alphabet <code>Σ = { 0, 1 }</code>. Déterminez si ce sont des langages réguliers et/ou finis. Utilisez les ensembles, expressions régulières, ou automates finis pour justifier vos réponses.</p>
 
     <details>
         <summary>Le langage des mots d'au plus deux symboles.</summary>
-        <p>Le langage est fini, car tout ses mots peuvent être énumérés exhaustivement :</p><br>
-        <p><code>{ ε, 0, 1, 00, 11, 01, 10 }</code></p><br>
-        <p>On n'oublie pas le mot vide ε, car "au plus" est une borne supérieure et il n'y a pas de borne inférieure quant à la longueur d'un mot du langage.</p><br>
-        <p>Le langage est également régulier, car il est fini. On peut d'ailleurs représenter le langage avec une expression régulière :</p><br>
+        <p>Le langage est fini, car tout ses mots peuvent être énumérés exhaustivement :</p>
+        <p><code>{ ε, 0, 1, 00, 11, 01, 10 }</code></p>
+        <p>On n'oublie pas le mot vide ε, car "au plus" est une borne supérieure et il n'y a pas de borne inférieure quant à la longueur d'un mot du langage.</p>
+        <p>Le langage est également régulier, car il est fini. On peut d'ailleurs représenter le langage avec une expression régulière :</p>
         <p><code>ε | 0 | 1 | 00 | 11 | 01 | 10</code></p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots de taille 2.</summary>
-        <p>Le langage est fini (et en conséquence régulier), car tout ses mots peuvent être énumérés exhaustivement :</p><br>
+        <p>Le langage est fini (et en conséquence régulier), car tout ses mots peuvent être énumérés exhaustivement :</p>
         <p><code>{ 00, 11, 01, 10 }</code></p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui commencent et finissent par "1".</summary>
-        <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement. On ne peut pas construire un ensemble fini car il peut y avoir une infinité de "0" ou de "1" entre le premier et dernier "1". Pour vérifier si le langage est régulier (mais pas fini), on va essayer de trouver une expression régulière pour le représenter:</p><br>
-        <p><code>1(0|1)*1 | 1</code></p><br>
+        <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement. On ne peut pas construire un ensemble fini car il peut y avoir une infinité de "0" ou de "1" entre le premier et dernier "1". Pour vérifier si le langage est régulier (mais pas fini), on va essayer de trouver une expression régulière pour le représenter:</p>
+        <p><code>1(0|1)*1 | 1</code></p>
         <p>Le langage est régulier, car on a trouvé une expression régulière valide pour le représenter. À noter que la fin de l'expression régulière <code>| 1</code> permet de prendre en compte le cas ou le mot ne comprend qu'un seul "1".</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des nombres impairs en représentation binaire.</summary>
-        <p>Un nombre binaire est impair si son dernier chiffre est un "1".</p><br>
-        <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement :</p><br>
-        <p><code>{ 01, 011, 101, 111, 1001, ... }</code></p><br>
-        <p>Le langage est régulier, car on peut trouver une expression régulière :</p><br>
+        <p>Un nombre binaire est impair si son dernier chiffre est un "1".</p>
+        <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement :</p>
+        <p><code>{ 01, 011, 101, 111, 1001, ... }</code></p>
+        <p>Le langage est régulier, car on peut trouver une expression régulière :</p>
         <p><code>(0|1)*1</code></p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots présents dans les livres de Victor Hugo, qui sont codés en morse.</summary>
-        <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p><br>
+        <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p>
         <p>Le langage est également régulier, car il est fini. Une expression régulière du langage consiste en un "OU" de tous les mots des livres : <code>le|la|les|misérables|...</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots d'au moins deux symboles.</summary>
-        <p>Le langage n'est pas fini, car il n'y a pas de borne supérieure sur la taille des mots.</p><br>
+        <p>Le langage n'est pas fini, car il n'y a pas de borne supérieure sur la taille des mots.</p>
         <p>Le langage est régulier, car on peut trouver une expression régulière pour le représenter : <code>(00|11|01|10).(0|1)*</code>, ou bien <code>(0|1).(0|1).(0|1)*</code>, ou bien <code>(0|1)(0|1)+</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots de taille 3 qui commencent et finissent par le même symbole.</summary>
         <p>Le langage est fini (et donc régulier), car on peut énumérer l'ensemble des mots : <code>{ 000, 010, 101, 111 }</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui commencent et finissent par "1" et qui contiennent exactement trois "1".</summary>
-        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "0" entre les trois "1" d'un mot.</p><br>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "0" entre les trois "1" d'un mot.</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1.0*.1.0*.1</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui ne contiennent aucun "0".</summary>
-        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "1".</p><br>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de "1".</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1*</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui contiennent exactement deux fois chaque symbole de l'alphabet défini.</summary>
         <p>Le langage est fini (et donc également régulier), car on peut énumérer l'ensemble des mots : <code>{ 0011, 1100, 0101, 1010, 0110, 1001 }</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui commencent et finissent par le même symbole.</summary>
-        <p>Le langage n'est pas fini, car entre le premier et le dernier caractère du mot il peut y avoir une infinité d'autres caractères.</p><br>
+        <p>Le langage n'est pas fini, car entre le premier et le dernier caractère du mot il peut y avoir une infinité d'autres caractères.</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>(0.(0|1)*.0) | (1.(0|1)*.1)</code>.</p>
-    </details><br>
+    </details>
 
     <details>
         <summary>Le langage des mots qui ont un nombre impair de "1".</summary>
-        <p>Le langage n'est pas fini, car il peut y avoir une infinité de mots avec un nombre impair de "1".</p><br>
+        <p>Le langage n'est pas fini, car il peut y avoir une infinité de mots avec un nombre impair de "1".</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>0* 1 (0* 1 0* 1 0*)* 0*</code>. La logique est que dans un mot avec un nombre impair de "1", on aura toujours un premier "1" suivi d'un nombre pair de "1". Dans ce cas-ci, l'automate fini du langage est plus intuitif à trouver : à faire en exercice !</p>
-    </details><br>
+    </details>
 </body>
 </html>
