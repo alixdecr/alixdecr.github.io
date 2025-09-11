@@ -11,18 +11,20 @@
 <body>
     <h1>Chapitre 1 : Langages Réguliers</h1>
 
-    <p><i>Dernière mise à jour : 22/08/2025 (Alix Decrop)</i></p>
+    <p class="last-update">Dernière mise à jour : 11/09/2025</p>
 
-    <p><b>Table des Matières</b></p>
+    <div class="contents">
+        <p><b>Table des Matières</b></p>
 
-    <ol>
-        <li><a href="#langages-syntaxe-semantique">Langage, Syntaxe, Sémantique</a></li>
-        <li><a href="#langage-fini">Langage Fini</a></li>
-        <li><a href="#langage-regulier">Langage Régulier</a></li>
-        <li><a href="#expression-reguliere">Expression Régulière</a></li>
-        <li><a href="#automate-fini">Automate Fini</a></li>
-        <li><a href="#exercices">Exercices</a></li>
-    </ol>
+        <ol>
+            <li><a href="#langages-syntaxe-semantique">Langage, Syntaxe, Sémantique</a></li>
+            <li><a href="#langage-fini">Langage Fini</a></li>
+            <li><a href="#langage-regulier">Langage Régulier</a></li>
+            <li><a href="#expression-reguliere">Expression Régulière</a></li>
+            <li><a href="#automate-fini">Automate Fini</a></li>
+            <li><a href="#exercices">Exercices</a></li>
+        </ol>
+    </div>
 
 
     <h2 id="langages-syntaxe-semantique">Langage, Syntaxe, Sémantique</h2>
@@ -35,7 +37,6 @@
 
     <p class="info">Il se peut qu'un mot d'un langage soit syntaxiquement valide, mais sémantiquement invalide. Par exemple, le mot <code>int x = "test"</code> pourrait être syntaxiquement valide car il respecte la structure d'une déclaration de variable définie en Java. Cependant, ce mot serait sémantiquement invalide, car <code>"test"</code> est une chaîne de caractères (<code>String</code>) et non un entier (<code>int</code>). Donc, le type défini pour la variable <code>x</code> ne correspondrait pas au type de sa valeur.</p>
 
-    <hr>
 
     <h2 id="langage-fini">Langage Fini</h2>
 
@@ -57,7 +58,6 @@
 
     <p class="info">Les langages finis sont des sous-ensembles des langages réguliers. Un langage fini peut donc être représenté par une expression régulière ou un automate fini, et est donc également considéré comme un langage régulier.</p>
 
-    <hr>
 
     <h2 id="langage-regulier">Langage Régulier</h2>
 
@@ -65,7 +65,6 @@
 
     <p class="info">Un langage régulier n'est pas nécessairement un langage fini. Ceci est dû au fait que les langages finis sont des sous-ensembles des langages réguliers, donc on peut très bien trouver un langage régulier qui n'est pas fini.</p>
 
-    <hr>
 
     <h2 id="expression-reguliere">Expression Régulière</h2>
 
@@ -133,7 +132,6 @@
         <li>L'expression régulière <code>a^[2-5]</code> peut générér les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparait entre <code>2</code> et <code>5</code> fois".</li>
     </ul>
 
-    <hr>
 
     <h2 id="automate-fini">Automate Fini</h2>
 
@@ -174,7 +172,6 @@
 
     <p class="info">Le complément d'un langage régulier est toujours régulier. Si un langage n'est pas régulier, il ne peut pas être représenté par un automate fini (ou une expression régulière), et donc son complément non plus.</p>
 
-    <hr>
 
     <h2 id="exercices">Exercices</h2>
 
