@@ -55,8 +55,9 @@ a:hover {
     color: blue;
 }
 
-code {
+code, pre {
     color: rgb(173, 0, 0);
+    font-size: larger;
 }
 
 details {

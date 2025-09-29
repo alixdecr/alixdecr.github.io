@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../../styles/courses.css">
+
+    <title>Chapitre 1 - Complexité</title>
+</head>
+<body>
+    <h1>Chapitre 1 - Complexité</h1>
+
+    <p class="last-update">Dernière mise à jour : 29/09/2025</p>
+
+    <div class="contents">
+        <p><b>Table des Matières</b></p>
+
+        <ol>
+            <li><a href="#algorithmique">Algorithmique</a></li>
+            <li><a href="#langage-java">Langage Java</a></li>
+            <li><a href="#complexite">Complexité</a></li>
+            <li><a href="#exercices">Exercices</a></li>
+        </ol>
+    </div>
+
+
+    <h2 id="algorithmique">Algorithmique</h2>
+
+    <p>Un <b>algorithme</b> est une séquence finie d'instructions rigoureuses permettant de résoudre un problème ou d'accomplir une tâche donnée. En d'autres termes, un algorithme est une méthode systématique qui, en partant de données en entrée, décrit étape par étape les actions à effectuer pour produire des données de sortie.</p>
+
+    <p>Il est important en premier lieu d'abstraire un algorithme de tout langage de programmation. En effet, bien qu'on emploie souvent des langages de programmation pour implémenter des algorithmes, ils peuvent également être décrits de divers autres façons : en langage naturel, avec du pseudocode, etc.</p>
+
+    <p>Comme exemple, supposons que l'on aimerait résoudre un problème : <b>calculer la somme de deux nombres</b>. Nous pouvons implémenter un algorithme qui va décrire les étapes à effectuer pour résoudre ce problème.</p>
+
+    <p>Nous pouvons tout d'abord représenter cet algorithme en <b>langage naturel</b> (français dans notre cas), un peu comme une recette de cuisine :</p>
+
+    <ul>
+        <li>Etape 1 : lire les valeurs de <code>a</code> et <code>b</code> données en entrée. On suppose que <code>a</code> et <code>b</code> représentent les deux nombres.</li>
+        <li>Etape 2 : calculer la somme de <code>a</code> et de <code>b</code>.</li>
+        <li>Etape 3 : affichier la somme obtenue.</li>
+        <li>Etape 4 : fin des étapes.</li>
+    </ul>
+
+    <p>Ce formalisme est très clair pour un humain, mais ce n'est pas très formel. Nous pouvons rendre cet algorithme plus formel en le représentant avec du <b>pseudocode</b> :</p>
+
+    <pre>
+    ALGORITHM: sumTwoNumbers
+    INPUT: a (integer) and b (integer)
+    OUTPUT: sum of a and b (integer)
+
+    BEGIN
+        READ a, b
+        SUM = a + b
+        PRINT SUM
+    END
+    </pre>
+
+    <p>L'algorithme est à présent représenté de façon beaucoup plus formelle. Cependant, ce pseudocode mélange du langage naturel et des conventions de nommage logiques/de programmation, ce qui n'est pas lisible par un ordinateur. Pour ce faire, nous pouvons aller encore plus loin et représenter l'algorithme avec le <b>langage de programmation</b> Java :</p>
+
+    <pre>
+    int sumTwoNumbers(int a, int b) {
+        int sum = a + b;
+        System.out.println("The sum is: " + sum);
+        return sum;
+    }
+    </pre>
+
+    <p>En conclusion, nous avons réalisé un algorithme permettant de résoudre le problème du calcul de la somme de deux nombres. Nous avons implémenté cet algorithme de trois façons différentes : en langage naturel, en pseudocode, et en langage de programmation. Bien que la façon idéale de représenter un algorithme en informatique soit d'utiliser un langage de programmation, il est souvent utile de d'abord représenter un algorithme en langage naturel ou en pseudocode afin d'avoir une idée globale de son fonctionnement.</p>
+
+
+    <h2 id="langage-java">Langage Java</h2>
+
+    <p class="info">Dans le cadre de ce cours, nous allons utiliser le langage de programmation Java pour implémenter des algorithmes. Il est important de noter qu'on ne vous demande pas d'être des professionnels du langage. Ce qui compte surtout, c'est de comprendre les concepts liés aux algorithmes : savoir décomposer un problème, concevoir les étapes, spécifier, organiser les instructions, etc. Une fois que ces notions sont bien assimilées, il devient beaucoup plus facile de passer d'un langage à un autre (car les idées fondamentales restent les mêmes). Maîtriser les concepts liés aux algorithmes est bien plus précieux que de mémoriser la syntaxe de Java !</p>
+
+    <p><b>Type primitif</b> : <code>int</code> (entier), <code>boolean</code> (vrai/faux), <code>char</code> (caractère), <code>float</code>, <code>double</code>, etc.</p>
+
+    <p><b>Type non-primitif (objet)</b> : <code>String</code> (chaine de caractères), <code>int[]</code> (tableau d'entiers), <code>String[]</code> (tableau de chaines de caracères), etc.</p>
+
+    <p><b>Opération mathématique</b> : <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulo), etc.</p>
+
+    <p><b>Expression logique</b> : <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (négation), etc.</p>
+
+    <p><b>Commentaire</b> :</p>
+
+    <pre>
+    // this is a single line comment
+
+    /*
+    this is
+    a multiline
+    comment
+    */
+    </pre>
+
+    <p><b>Variable</b> :</p>
+
+    <pre>
+    int nb = 10;
+    boolean exists = false;
+    String[] cars = {"audi", "bmw", "skoda"};
+    </pre>
+
+    <p><b>Tableau</b> :</p>
+
+    <pre>
+    int[] numbers = {1, 2, 3, 4};
+    System.out.println(numbers[0]); // prints the first element of numbers (1)
+    </pre>
+
+    <p><b>Condition</b> :</p>
+
+    <pre>
+    if(a > 0) {
+        System.out.println("a is positive");
+    }
+    else {
+        System.out.println("a is negative or 0");
+    }
+    </pre>
+
+    <p><b>Boucle for</b> :</p>
+
+    <pre>
+    for(int i = 0; i < 10; i++) {
+        System.out.println(i);
+    }
+    </pre>
+
+    <p><b>Boucle while</b> :</p>
+
+    <pre>
+    while(a > 0) {
+        a--;
+    }
+    </pre>
+
+    <p><b>Fonction</b> :</p>
+
+    <pre>
+    public static int sum(int x, int y) {
+        return x + y;
+    }
+    </pre>
+
+    <p><b>Récursion</b> :</p>
+
+    <pre>
+    public static int factorial(int n) {
+        if(n == 0 || n == 1) {
+            return 1; // base case
+        }
+        else {
+            return n * factorial(n - 1); // recursive call
+        }
+    }
+    </pre>
+
+    <p>L'ensemble de ces concepts en Java devraient déjà consister en une bonne base pour commencer à implémenter des algorithmes.</p>
+
+
+    <h2 id="complexite">Complexité</h2>
+
+
+    <h2 id="exercices">Exercices</h2>
+
+    <h3>1. Algorithmes Simples</h3>
+
+    <p>Implémentez des algorithmes en langage naturel, pseudocode, et en Java pour résoudre les problèmes suivants :</p>
+
+    <details>
+        <summary>1.1. Trouver le maximum entre deux entiers.</summary>
+        <p>Solution</p>
+    </details>
+
+    <details>
+        <summary>1.2. Afficher tous les entiers inférieurs à un entier donné.</summary>
+        <p>Solution</p>
+    </details>
+
+    <details>
+        <summary>1.3. Déterminer si un entier est pair ou impair.</summary>
+        <p>Solution</p>
+    </details>
+
+
+    <div class="license">
+        <p>&copy; 2025 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>. En gros, vous êtes libres de copier/redistribuer le contenu de cette page, sans utilisation commerciale ni modifications.</p>
+
+        <img src="../../images/license.png" alt="CC BY-NC-ND 4.0 License Image">
+    </div>
+</body>
+</html>

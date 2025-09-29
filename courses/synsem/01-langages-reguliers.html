@@ -6,10 +6,10 @@
     
     <link rel="stylesheet" href="../../styles/courses.css">
 
-    <title>Chapitre 1 - Syntaxe et Sémantique</title>
+    <title>Chapitre 1 - Langages Réguliers</title>
 </head>
 <body>
-    <h1>Chapitre 1 : Langages Réguliers</h1>
+    <h1>Chapitre 1 - Langages Réguliers</h1>
 
     <p class="last-update">Dernière mise à jour : 11/09/2025</p>
 
@@ -175,61 +175,61 @@
 
     <h2 id="exercices">Exercices</h2>
 
-    <h3>Vrai ou Faux ?</h3>
+    <h3>1. Vrai ou Faux ?</h3>
 
     <p>Pour chacune des affirmations suivantes, déterminez si elles sont vraies ou fausses et justifiez.</p>
 
     <details>
-        <summary>Si la sémantique d'un mot est invalide, alors sa syntaxe l'est aussi.</summary>
+        <summary>1.1. Si la sémantique d'un mot est invalide, alors sa syntaxe l'est aussi.</summary>
         <p>Faux</p>
     </details>
 
     <details>
-        <summary>L'alphabet utilisé par un langage peut être infini.</summary>
+        <summary>1.2. L'alphabet utilisé par un langage peut être infini.</summary>
         <p>Faux</p>
     </details>
 
     <details>
-        <summary>L'ensemble des mots d'un langage peut être infini.</summary>
+        <summary>1.3. L'ensemble des mots d'un langage peut être infini.</summary>
         <p>Vrai</p>
     </details>
 
     <details>
-        <summary>Tous les mots d'un langage régulier peuvent être énumérés exhaustivement.</summary>
+        <summary>1.4. Tous les mots d'un langage régulier peuvent être énumérés exhaustivement.</summary>
         <p>Faux</p>
     </details>
 
     <details>
-        <summary>Tout langage fini est régulier.</summary>
+        <summary>1.5. Tout langage fini est régulier.</summary>
         <p>Vrai</p>
     </details>
 
     <details>
-        <summary>Il se peut qu'un langage régulier ne soit pas fini.</summary>
+        <summary>1.6. Il se peut qu'un langage régulier ne soit pas fini.</summary>
         <p>Vrai</p>
     </details>
 
     <details>
-        <summary>Si l'on peut représenter un langage avec une expression régulière, alors il est fini.</summary>
+        <summary>1.7. Si l'on peut représenter un langage avec une expression régulière, alors il est fini.</summary>
         <p>Faux</p>
     </details>
 
     <details>
-        <summary>Tout langage fini peut être représenté par une expression régulière.</summary>
+        <summary>1.8. Tout langage fini peut être représenté par une expression régulière.</summary>
         <p>Vrai</p>
     </details>
 
     <details>
-        <summary>On ne peut pas représenter un langage régulier avec un automate fini.</summary>
+        <summary>1.9. On ne peut pas représenter un langage régulier avec un automate fini.</summary>
         <p>Faux</p>
     </details>
 
-    <h3>Classification de Langages</h3>
+    <h3>2. Classification de Langages</h3>
 
     <p>Soit les langages suivants définis sur l'alphabet <code>Σ = { 0, 1 }</code>. Déterminez si ce sont des langages réguliers et/ou finis. Utilisez les ensembles, expressions régulières, ou automates finis pour justifier vos réponses.</p>
 
     <details>
-        <summary>Le langage des mots d'au plus deux symboles.</summary>
+        <summary>2.1. Le langage des mots d'au plus deux symboles.</summary>
         <p>Le langage est fini, car tout ses mots peuvent être énumérés exhaustivement :</p>
         <p><code>{ ε, 0, 1, 00, 11, 01, 10 }</code></p>
         <p>On n'oublie pas le mot vide ε, car "au plus" est une borne supérieure et il n'y a pas de borne inférieure quant à la longueur d'un mot du langage.</p>
@@ -238,20 +238,20 @@
     </details>
 
     <details>
-        <summary>Le langage des mots de taille 2.</summary>
+        <summary>2.2. Le langage des mots de taille 2.</summary>
         <p>Le langage est fini (et en conséquence régulier), car tout ses mots peuvent être énumérés exhaustivement :</p>
         <p><code>{ 00, 11, 01, 10 }</code></p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui commencent et finissent par "1".</summary>
+        <summary>2.3. Le langage des mots qui commencent et finissent par "1".</summary>
         <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement. On ne peut pas construire un ensemble fini car il peut y avoir une infinité de "0" ou de "1" entre le premier et dernier "1". Pour vérifier si le langage est régulier (mais pas fini), on va essayer de trouver une expression régulière pour le représenter:</p>
         <p><code>1(0|1)*1 | 1</code></p>
         <p>Le langage est régulier, car on a trouvé une expression régulière valide pour le représenter. À noter que la fin de l'expression régulière <code>| 1</code> permet de prendre en compte le cas ou le mot ne comprend qu'un seul "1".</p>
     </details>
 
     <details>
-        <summary>Le langage des nombres impairs en représentation binaire.</summary>
+        <summary>2.4. Le langage des nombres impairs en représentation binaire.</summary>
         <p>Un nombre binaire est impair si son dernier chiffre est un "1".</p>
         <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement :</p>
         <p><code>{ 01, 011, 101, 111, 1001, ... }</code></p>
@@ -260,47 +260,47 @@
     </details>
 
     <details>
-        <summary>Le langage des mots présents dans les livres de Victor Hugo, qui sont codés en morse.</summary>
+        <summary>2.5. Le langage des mots présents dans les livres de Victor Hugo, qui sont codés en morse.</summary>
         <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p>
         <p>Le langage est également régulier, car il est fini. Une expression régulière du langage consiste en un "OU" de tous les mots des livres : <code>le|la|les|misérables|...</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots d'au moins deux symboles.</summary>
+        <summary>2.6. Le langage des mots d'au moins deux symboles.</summary>
         <p>Le langage n'est pas fini, car il n'y a pas de borne supérieure sur la taille des mots.</p>
         <p>Le langage est régulier, car on peut trouver une expression régulière pour le représenter : <code>(00|11|01|10).(0|1)*</code>, ou bien <code>(0|1).(0|1).(0|1)*</code>, ou bien <code>(0|1)(0|1)+</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots de taille 3 qui commencent et finissent par le même symbole.</summary>
+        <summary>2.7. Le langage des mots de taille 3 qui commencent et finissent par le même symbole.</summary>
         <p>Le langage est fini (et donc régulier), car on peut énumérer l'ensemble des mots : <code>{ 000, 010, 101, 111 }</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui commencent et finissent par "1" et qui contiennent exactement trois "1".</summary>
+        <summary>2.8. Le langage des mots qui commencent et finissent par "1" et qui contiennent exactement trois "1".</summary>
         <p>Le langage n'est pas fini, car il peut y avoir une infinité de "0" entre les trois "1" d'un mot.</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1.0*.1.0*.1</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui ne contiennent aucun "0".</summary>
+        <summary>2.9. Le langage des mots qui ne contiennent aucun "0".</summary>
         <p>Le langage n'est pas fini, car il peut y avoir une infinité de "1".</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>1*</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui contiennent exactement deux fois chaque symbole de l'alphabet défini.</summary>
+        <summary>2.10. Le langage des mots qui contiennent exactement deux fois chaque symbole de l'alphabet défini.</summary>
         <p>Le langage est fini (et donc également régulier), car on peut énumérer l'ensemble des mots : <code>{ 0011, 1100, 0101, 1010, 0110, 1001 }</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui commencent et finissent par le même symbole.</summary>
+        <summary>2.11. Le langage des mots qui commencent et finissent par le même symbole.</summary>
         <p>Le langage n'est pas fini, car entre le premier et le dernier caractère du mot il peut y avoir une infinité d'autres caractères.</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>(0.(0|1)*.0) | (1.(0|1)*.1)</code>.</p>
     </details>
 
     <details>
-        <summary>Le langage des mots qui ont un nombre impair de "1".</summary>
+        <summary>2.12. Le langage des mots qui ont un nombre impair de "1".</summary>
         <p>Le langage n'est pas fini, car il peut y avoir une infinité de mots avec un nombre impair de "1".</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>0* 1 (0* 1 0* 1 0*)* 0*</code>. La logique est que dans un mot avec un nombre impair de "1", on aura toujours un premier "1" suivi d'un nombre pair de "1". Dans ce cas-ci, l'automate fini du langage est plus intuitif à trouver : à faire en exercice !</p>
     </details>
