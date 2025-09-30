@@ -21,6 +21,7 @@
             <li><a href="#langage-java">Langage Java</a></li>
             <li><a href="#types-de-fonctions">Types de Fonctions</a></li>
             <li><a href="#complexite">Complexité</a></li>
+            <li><a href="#memoisation">Mémoisation</a></li>
             <li><a href="#exercices">Exercices</a></li>
         </ol>
     </div>
@@ -174,6 +175,124 @@
 
     <h2 id="complexite">Complexité</h2>
 
+    <p>Vu que les ressources disponibles d'un ordinateur ne sont (pas encore) illimitées, il est important d'implémenter des algorithmes qui en prennent compte. Donc, lorsqu'on implémente un algorithme, on va mesurer son efficacité sur base de sa consommation en ressources.</p>
+
+    <p>La <b>complexité</b> algorithmique est une manière de mesurer l'efficacité d'un algorithme. Elle permet de savoir combien de <b>temps de calcul</b> ou combien de d'<b>espace mémoire</b> un algorithme va utiliser en fonction de la taille de son entrée (souvent représentée par <code>n</code>). Par exemple, si on a un algorithme qui trie une liste de <code>n</code> entiers, la complexité nous aide à estimer combien d'opérations seront nécessaires quand <code>n</code> devient très grand. La complexité aide notamment à comparer l'efficacité de différents algorithmes, et de choisir le plus adapté à un problème donné.</p>
+
+    <p>Selon la ressource, on peut mesurer deux types de complexités :</p>
+
+    <ul>
+        <li><b>Complexité en temps</b> : indique combien d'opérations l'algorithme va effectuer.</li>
+        <li><b>Complexité en espace</b> : indique combien de mémoire l'algorithme va utiliser.</li>
+    </ul>
+
+    <p>On utilisera la notation grand <code>O</code> pour représenter la complexité d'un algorithme en fonction des entrées <code>n</code>. Par exemple, <code>O(n)</code> représente une complexité linéaire. Afin de comprendre l'impact de la complexité d'un algorithme, on peut visualiser le schéma suivant :</p>
+
+    <img class="image" src="../../images/big-o-cheat-sheet.png" alt="Image">
+
+    <p>On peut comprendre comment le temps ou l'espace utilisé par un algorithme augmente quand la taille de l'entrée <code>n</code> augmente, et donc en conséquence l'importance d'optimiser les implémentations d'algorithmes.</p>
+
+    <p>Lorsqu'on implémente des algorithmes, on retrouve parfois des complexités "types" qui ont leur propre nom :</p>
+
+    <ul>
+        <li><code>O(1)</code> : complexité <b>constante</b>.</li>
+        <li><code>O(log n)</code> : complexité <b>logarithmique</b>.</li>
+        <li><code>O(n)</code> : complexité <b>linéaire</b>.</li>
+        <li><code>O(n log n)</code> : complexité <b>linéarithmique</b> ou <b>loglinéaire</b>.</li>
+        <li><code>O(n^2)</code> : complexité <b>quadratique</b>.</li>
+        <li><code>O(2^n)</code> : complexité <b>exponentielle</b>.</li>
+        <li><code>O(n!)</code> : complexité <b>factorielle</b>.</li>
+    </ul>
+
+    <p>Il est possible de calculer la complexité d'un algorithme à partir de son code. L'idée est d'analyser le nombre d'opérations effectuées en fonction de la taille de l'entrée <code>n</code>.</p>
+
+    <p><b>Opérations constantes</b> : les opérations qui ne dépendent pas de <code>n</code> ont une complexité constante <code>O(1)</code>, car peu importe la taille de l'entrée <code>n</code>, ces opérations prendront toujours le même temps à exécuter.</p>
+
+    <pre>
+    public static void test(int n) {
+        int a = 2;               // O(1)
+        int b = 100000 * 2 / 10; // O(1)
+        int c = 10 + n;          // Also O(1) because insignificant
+    }
+    </pre>
+
+    <p><b>Conditions</b> : lorsqu'une condition <code>if</code> pourrait mener vers une complexité très élevée, on la considère car on prend toujours le "pire cas possible" pour le calcul de la complexité.</p>
+
+    <pre>
+    public static void test(int n, int a) {
+        if(a > 10) { // O(n^2) ; We consider this as it is the worst case possible
+            // Execute n^2 operations
+        }
+        else { // O(1)
+            // Execute 1 operation
+        }
+    }
+    </pre>
+
+    <p><b>Boucles</b> : lorsqu'une boucle itère en fonction de la taille d'entrée <code>n</code>, sa complexité correspond également au nombre d'itérations <code>n</code>. Il faut faire attention car certaines boucles peuvent itérer plus rapidement et donc ont une complexité inférieure à <code>n</code>. Lorsque des boucles sont imbriquées, on multiplie leurs complexités.</p>
+
+    <pre>
+    public static void test(int n) {
+        // O(n)
+        for(int i = 0; i < n; i++) { // we iterate n times
+            // code
+        }
+
+        // O(n) * O(n) = O(n^2)
+        for(int i = 0; i < n; i++) { // we iterate n times
+            for(int j = 0; j < n; i++) { // we iterate n times
+                // code
+            }
+        }
+
+        // O(log n)
+        for(int i = 1; i < n; i *= 2) { // we iterate log n times
+            // code
+        }
+    }
+    </pre>
+
+    <p><b>Récursions</b> : pour calculer la complexité d'un programme contenant de la récursion, on utilise des <b>équations récurrentes</b>.</p>
+
+    <img class="image" src="../../images/equations-recurrentes.png" alt="Image">
+
+    <p>Pour trouver la forme de l'équation, on regarde la forme de la récursion <code>cT(...)</code> et la forme du reste du code <code>bn^k</code>. En fonction de l'équation récurrente formée, on peut trouver la complexité finale à l'aide du tableau.</p>
+
+    <p><b>Simplifications</b> : il existe des règles à appliquer pour trouver la forme générale d'une complexité.</p>
+
+    <img class="image" src="../../images/regles-o.png" alt="Image">
+
+    <p><b>Formules log</b> : il existe également des formules pour transformer/simplifier des expressions logarithmiques.</p>
+
+    <img class="image" src="../../images/regles-log.png" alt="Image">
+
+
+    <h2 id="memoisation">Mémoisation</h2>
+
+    <p>La <b>mémoisation</b> est une technique d'optimisation pour les algorithmes récursifs (qui recalculent souvent les mêmes résultats). L'idée est simple : stocker les résultats déjà calculés dans une structure (tableau, liste, dictionnaire, etc.) pour ne pas devoir les recalculer. Cela permet souvent de réduire la complexité des algorithmes récursifs qui explorent plusieurs fois les mêmes sous-problèmes.</p>
+
+    <p>Par exemple, nous pouvons appliquer le principe de mémoisation à une fonction récursive qui calcule la suite de Fibonacci :</p>
+
+    <pre>
+    public static int fibonacciMemo(int n, int[] memo) {
+        if(n <= 1) {
+            return n;  // base case
+        }
+
+        if(memo[n] != -1) {
+            return memo[n];  // case when the result is already in the memo
+        }
+
+        memo[n] = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
+
+        return memo[n];
+    }
+    </pre>
+
+    <p>On peut voir une illustration du principe de mémoisation pour Fibonacci ci-dessous :</p>
+
+    <img class="image" src="../../images/memoisation-fibonacci-example.png" alt="Image">
+
 
     <h2 id="exercices">Exercices</h2>
 
@@ -289,6 +408,111 @@
     <details>
         <summary>2.3. Inverser une chaîne de caractères.</summary>
         <p>Solution</p>
+    </details>
+
+    <h3>3. Complexité</h3>
+
+    <details>
+        <summary>3.1. Simplifiez l'ordre de grandeur suivant : <code>log(n^2) + (log(2^n))^2 + log(4^n) + n * log(n)</code></summary>
+        <p><code>2logn + (nlog2)^2 + nlog4 + n * logn</code></p>
+        <p><code>2logn + (n * 1)^2 + (n * 0.6) + n * logn</code></p>
+        <p><code>2logn + n^2 + 0.6n + nlogn</code></p>
+        <p><code>logn + n^2 + n + nlogn</code></p>
+        <p><code>O(n^2)</code>, car <code>n^2</code> est la complexité la plus élevée.</p>
+    </details>
+
+    <details>
+        <summary>
+            3.2. Donnez la complexité en temps de la fonction suivante :
+            <pre>
+    public static int myFunc(int n) {
+        int u = 0;
+
+        for(int i = 0; i <= n * n; i++) {
+            u = i;
+            while(u > 1) {
+                u = u / 2;
+            }
+        }
+
+        return u;
+    }
+            </pre>
+        </summary>
+        <pre>
+    public static int funcA(int n) {
+        int u = 0; // 1
+
+        for(int i = 0; i <= n * n; i++) { // n^2
+            u = i; // 1
+            while(u > 1) { // log n
+                u = u / 2; // 1
+            }
+        }
+
+        return u; // 1
+    }
+        </pre>
+        <p>On omet les complexités constantes de type <code>O(1)</code>, et on multiplie les complexités des boucles imbriquées : <code>O(n^2) * O(log n)</code>. On obtient donc la complexité en temps <code>O(n^2 log n)</code> (loglinéaire quadratique).</p>
+    </details>
+
+    <details>
+        <summary>
+            3.3. Donnez la complexité en temps de la fonction suivante :
+            <pre>
+    public static int funcB(int n) {
+        int r = 0;
+
+        if(n > 4) {
+            for(int i = 0; i < 4; i++) {
+                r = r + funcB(n/2);
+            }
+        }
+
+        for(int i = 1; i < n; i *= 2) {
+            for(int j = 0; j < n; j++) {
+                for(int k = j; k < n; k += 2) {
+                    r += i + j * k;
+                }
+            }
+        }
+
+        return r;
+    }
+            </pre>
+        </summary>
+        <pre>
+    public static int funcB(int n) {
+        int r = 0; // 1
+
+        if(n > 4) { // Worst case, enter if
+            for(int i = 0; i < 4; i++) { // 4
+                r = r + funcB(n/2); // T(n/2)
+            }
+        }
+
+        for(int i = 1; i < n; i *= 2) { // log n
+            for(int j = 0; j < n; j++) { // n
+                for(int k = j; k < n; k += 2) { // n/2
+                    r += i + j * k; // 1
+                }
+            }
+        }
+
+        return r; // 1
+    }
+        </pre>
+        <p>Forme de la récursion <code>cT(n/d)</code> : <code>4T(n/2)</code>.</p>
+        <p>Forme du reste du code <code>bn^k</code> : <code>log n * n * n/2 = n^2 log n</code> (<code>n/2</code> se transforme en <code>n</code> car on omet la constante <code>2</code>).</p>
+        <p>On obtient l'équation récurrente : <code>4T(n/2) + n^2 log n</code>, ce qui correspond à la condition <code>c = d^k <=> 4 = 2^2</code>.</p>
+        <p>Ce qui correspond à la complexité <code>O(n^2 log n)</code>.</p>
+    </details>
+
+
+    <h3>4. Mémoisation</h3>
+
+    <details>
+        <summary>4.1. Mémoisez le programme suivant :</summary>
     </details>
 
 
