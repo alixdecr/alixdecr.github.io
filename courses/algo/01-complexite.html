@@ -11,7 +11,7 @@
 <body>
     <h1>Chapitre 1 - Complexité</h1>
 
-    <p class="last-update">Dernière mise à jour : 29/09/2025</p>
+    <p class="last-update">Dernière mise à jour : 30/09/2025</p>
 
     <div class="contents">
         <p><b>Table des Matières</b></p>
@@ -19,6 +19,7 @@
         <ol>
             <li><a href="#algorithmique">Algorithmique</a></li>
             <li><a href="#langage-java">Langage Java</a></li>
+            <li><a href="#types-de-fonctions">Types de Fonctions</a></li>
             <li><a href="#complexite">Complexité</a></li>
             <li><a href="#exercices">Exercices</a></li>
         </ol>
@@ -159,27 +160,134 @@
     <p>L'ensemble de ces concepts en Java devraient déjà consister en une bonne base pour commencer à implémenter des algorithmes.</p>
 
 
+    <h2 id="types-de-fonctions">Types de Fonctions</h2>
+
+    <p>Afin d'implémenter un algorithme, on va souvent devoir boucler (itérer plusieurs fois) pour résoudre le problème associé. En effet, plein de problèmes en ont besoin : trouver le minimum dans une liste, trier les éléments d'un tableau, etc. Dans les langages de programmation, on va pouvoir implémenter des fonctions qui bouclent de deux façons différentes :</p>
+
+    <ul>
+        <li><b>Fonction itérative</b> : fonction impliquant une boucle (de type <code>for</code> ou <code>while</code>) répétant des instructions jusqu'à ce qu'une certaine condition est atteinte.</li>
+        <li><b>Fonction récursive</b> : fonction s'appelant elle-même jusqu'à ce qu'une certaine condition est atteinte. Il faut souvent utiliser plus de paramèters pour transmettre de l'information mise à jour dans les prochaines récursions.</li>
+    </ul>
+
+    <p>Souvent, l'itération et la récursion sont interchangeables.</p>
+
+
     <h2 id="complexite">Complexité</h2>
 
 
     <h2 id="exercices">Exercices</h2>
 
-    <h3>1. Algorithmes Simples</h3>
+
+    <h3>1. Algorithmes</h3>
 
     <p>Implémentez des algorithmes en langage naturel, pseudocode, et en Java pour résoudre les problèmes suivants :</p>
 
     <details>
         <summary>1.1. Trouver le maximum entre deux entiers.</summary>
-        <p>Solution</p>
+        <pre>
+    public static int max(int a, int b) {
+        if(a > b) {
+            return a;
+        }
+        else {
+            return b;
+        }
+    }
+        </pre>
     </details>
 
     <details>
         <summary>1.2. Afficher tous les entiers inférieurs à un entier donné.</summary>
-        <p>Solution</p>
+        <pre>
+    public static void printNumbersBelow(int x) {
+        if(x <= 0) {
+            System.out.println("No numbers to display");
+            return;
+        }
+        for(int i = 0; i < x; i++) {
+            System.out.println(i);
+        }
+    }
+        </pre>
     </details>
 
     <details>
         <summary>1.3. Déterminer si un entier est pair ou impair.</summary>
+        <pre>
+    public static boolean isEven(int x) {
+        return n % 2 == 0;
+    }
+        </pre>
+    </details>
+
+
+    <h3>2. Itération et Récursion</h3>
+
+    <p>Implémentez des algorithmes en Java dans des fonctions itératives et récursives pour résoudre les problèmes suivants :</p>
+
+    <details>
+        <summary>2.1. Renvoyer la valeur minimale d'un tableau d'entiers.</summary>
+        <p>Fonction itérative :</p>
+        <pre>
+    public static int tabMinIterative(int[] tab) {
+        int minValue = tab[0];
+
+        for(int index = 1; index < tab.length; index++) {
+            if(tab[index] < minValue) {
+                minValue = tab[index];
+            }
+        }
+
+        return minValue;
+    }
+        </pre>
+        <p>Fonction récursive :</p>
+        <pre>
+    public static int tabMinRecursive(int[] tab, int index) {
+        if(index == 0) {
+            return tab[0];
+        }
+
+        int minValue = tabMinRecursive(tab, index - 1);
+
+        if(minValue < tab[index]) {
+            return minValue;
+        }
+        else {
+            return tab[index];
+        }
+    }
+        </pre>
+    </details>
+
+    <details>
+        <summary>2.2. Étant donné un nombre <code>n</code>, calculer la somme de <code>1</code> à <code>n</code>.</summary>
+        <p>Fonction itérative :</p>
+        <pre>
+    public static int sumIterative(int n) {
+        int sum = 0;
+
+        for(int i = 1; i <= n; i++) {
+            sum += i;
+        }
+
+        return sum;
+    }
+        </pre>
+        <p>Fonction récursive :</p>
+        <pre>
+    public static int sumRecursive(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+
+        return n + sumRecursive(n - 1);
+    }
+        </pre>
+    </details>
+
+    <details>
+        <summary>2.3. Inverser une chaîne de caractères.</summary>
         <p>Solution</p>
     </details>
 
