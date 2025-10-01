@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../../styles/courses.css">
+
+    <title>Chapitre 2 - Langages Hors-Contexte</title>
+</head>
+<body>
+    <h1>Chapitre 2 - Langages Hors-Contexte</h1>
+
+    <p class="last-update">Dernière mise à jour : 01/10/2025</p>
+
+    <div class="contents">
+        <p><b>Table des Matières</b></p>
+
+        <ol>
+            <li><a href="#langages-hors-contexte">Langages Hors-Contexte</a></li>
+            <li><a href="#exercices">Exercices</a></li>
+        </ol>
+    </div>
+
+    <h2 id="langages-hors-contexte">Langages Hors-Contexte</h2>
+
+    <p>Lors du chapitre précédent, nous avons vu les langages réguliers. Bien qu'intéressants, ces types de langage avaient une principale faiblesse : une mémoire finie. Par exemple, considérons l'alphabet <code>{ a, b }</code> et "le langage des mots qui ont autant de <code>a</code> que de <code>b</code>". Pour dire que ce langage est régulier, il faut pouvoir le représenter par une expression régulière (ou bien un automate fini). Cependant, on se rend vite compte qu'il est impossible de trouver une expression régulière pour ce langage :</p>
+    <ul>
+        <li>Si l'on utilise <code>(ab)*</code>, on obtient bien des mots avec autant de <code>a</code> que de <code>b</code>. Cependant, les mots du genre <code>aabb</code> ou <code>aabbba</code> ne peuvent pas être générés, alors qu'ils contiennent bien autant de <code>a</code> que de <code>b</code>.</li>
+        <li>Si l'on utilise <code>(a|b)*</code>, on peut obtenir des mots qui n'ont pas autant de <code>a</code> que de <code>b</code>.</li>
+    </ul>
+
+    <h2 id="exercices">Exercices</h2>
+
+    <details>
+        <summary>Question</summary>
+        <p>Réponse</p>
+    </details>
+
+    <div class="license">
+        <p>&copy; 2025 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>. En gros, vous êtes libres de copier/redistribuer le contenu de cette page, sans utilisation commerciale ni modifications.</p>
+
+        <img src="../../images/license.png" alt="CC BY-NC-ND 4.0 License Image">
+    </div>
+</body>
+</html>
