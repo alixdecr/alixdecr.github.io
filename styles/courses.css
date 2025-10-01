@@ -82,7 +82,7 @@ img {
     max-width: 95%;
 }
 
-.contents {
+.table-of-contents {
     border: 1px solid #ccc;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -91,7 +91,6 @@ img {
 .info {
     background-color: rgb(220, 239, 255);
     border: 1px solid #ccc;
-    border-radius: 15px;
     padding: 0.5rem;
 }
 
