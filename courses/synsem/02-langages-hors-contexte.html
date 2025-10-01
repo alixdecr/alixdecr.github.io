@@ -17,18 +17,25 @@
         <p><b>Table des Matières</b></p>
 
         <ol>
-            <li><a href="#langages-hors-contexte">Langages Hors-Contexte</a></li>
+            <li><a href="#langage-hors-contexte">Langage Hors-Contexte</a></li>
             <li><a href="#exercices">Exercices</a></li>
         </ol>
     </div>
 
-    <h2 id="langages-hors-contexte">Langages Hors-Contexte</h2>
+    <h2 id="langage-hors-contexte">Langage Hors-Contexte</h2>
 
-    <p>Lors du chapitre précédent, nous avons vu les langages réguliers. Bien qu'intéressants, ces types de langage avaient une principale faiblesse : une mémoire finie. Par exemple, considérons l'alphabet <code>{ a, b }</code> et "le langage des mots qui ont autant de <code>a</code> que de <code>b</code>". Pour dire que ce langage est régulier, il faut pouvoir le représenter par une expression régulière (ou bien un automate fini). Cependant, on se rend vite compte qu'il est impossible de trouver une expression régulière pour ce langage :</p>
+    <p>Lors du chapitre précédent, nous avons vu les langages réguliers. Bien qu'intéressants, ces types de langage avaient une principale faiblesse : une mémoire finie. Par exemple, considérons l'alphabet <code>{ a, b }</code> et le langage "les mots qui ont autant de <code>a</code> que de <code>b</code>". Pour dire que ce langage est régulier, il faut pouvoir le représenter par une expression régulière (ou bien un automate fini). Cependant, on se rend vite compte qu'il est impossible de trouver une expression régulière pour ce langage :</p>
     <ul>
         <li>Si l'on utilise <code>(ab)*</code>, on obtient bien des mots avec autant de <code>a</code> que de <code>b</code>. Cependant, les mots du genre <code>aabb</code> ou <code>aabbba</code> ne peuvent pas être générés, alors qu'ils contiennent bien autant de <code>a</code> que de <code>b</code>.</li>
         <li>Si l'on utilise <code>(a|b)*</code>, on peut obtenir des mots qui n'ont pas autant de <code>a</code> que de <code>b</code>.</li>
+        <li>...</li>
     </ul>
+
+    <p>En conséquence, on ne trouvera jamais une expression régulière permettant de représenter ce langage. Cependant, nous allons découvrir un nouveau type de langage qui permet de le représenter : les langages <i>hors-contexte</i>.</p>
+
+    <p>Un <b>langage hors-contexte</b> est un langage qui peut être représenté par une grammaire hors-contexte ou un automate à pile. Souvent, on prouve qu'un langage est régulier en le représentant par une de ces deux formes-ci.</p>
+
+    <p class="info">Un langage hors-contexte n'est pas nécessairement un langage régulier. Ceci est dû au fait que les langages réguliers sont des sous-ensembles des langages hors-contexte, donc on peut très bien trouver un langage hors-contexte qui n'est pas régulier.</p>
 
     <h2 id="exercices">Exercices</h2>
 
