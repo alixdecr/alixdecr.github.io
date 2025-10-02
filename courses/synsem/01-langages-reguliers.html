@@ -152,7 +152,7 @@
 
     <p>Donc, pour lire un mot au travers de cet automate, on entre par l'état initial E0. Ensuite, on lit un caractère "a" et on passe vers l'état E1. Étant à présent dans l'état E1, on peut encore lire un caractère "b" et on passe vers l'état E2. Vu que l'état est final et qu'il n'y a pas d'autres transitions <i>sortantes</i>, on a terminé de lire le mot et on peut sortir de l'automate. Ayant lu un "a" et puis un "b", on les concatène pour former le mot "ab".</p>
 
-    <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des mots qui commencent et terminent par "a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p>
+    <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des "mots qui commencent et terminent par a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p>
 
     <img class="image" src="../../images/automaton2.png" alt="Image">
 
@@ -303,6 +303,58 @@
         <summary>2.12. Le langage des mots qui ont un nombre impair de "1".</summary>
         <p>Le langage n'est pas fini, car il peut y avoir une infinité de mots avec un nombre impair de "1".</p>
         <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>0* 1 (0* 1 0* 1 0*)* 0*</code>. La logique est que dans un mot avec un nombre impair de "1", on aura toujours un premier "1" suivi d'un nombre pair de "1". Dans ce cas-ci, l'automate fini du langage est plus intuitif à trouver : à faire en exercice !</p>
+    </details>
+
+    <h3>3. Automates Finis</h3>
+
+    <p>On considère l'automate ci dessous, défini sur l'alphabet <code>{ a, b, c }</code> :</p>
+
+    <img src="../../images/automate-exercice.png" alt="Image">
+
+    <details>
+        <summary>3.1. Donnez des mots de taille 1, 2, 3, 4, 5 qui sont reconnus par cet automate.</summary>
+        <p><code>b, aa, aba, abcb, abbba</code></p>
+    </details>
+
+    <details>
+        <summary>3.2. Donnez un mot qui n'est pas reconnu par cet automate.</summary>
+        <p><code>aca</code></p>
+    </details>
+
+    <details>
+        <summary>3.3. Donnez l'expression régulière équivalente à cet automate.</summary>
+        <p>Etape 1 : représenter les états de l'automate dans un système d'équations. On n'oublie pas d'ajouter ɛ lorsque l'état est final.</p>
+        <pre>
+    S1 = a.S2 | b.S3
+    S2 = b.S2 | c.S1 | a.S3
+    S3 = ɛ
+        </pre>
+        <p>Etape 2 : Substituer les équations jusqu'à la première. Si une équation est récursive, appliquer le Lemme d'Arden.</p>
+        <p class="info"><b>Lemme d'Arden</b> : <code>Y = XY | Z <=> Y = X*.(Z)</code></p>
+        <pre>
+    S1 = a.S2 | b.ɛ
+    S2 = b.S2 | c.S1 | a.ɛ
+
+    S1 = a.S2 | b.ɛ
+    S2 = b*.(c.S1 | a)           => Lemme d'Arden
+
+    S1 = a.(b*.(c.S1 | a)) | b
+
+    S1 = ab*cS1 | ab*a | b       => Distribution
+
+    S1 = (ab*c)* (ab*a | b)      => Lemme d'Arden
+        </pre>
+        <p>On trouve donc l'expression régulière suivante : <code>(ab*c)* (ab*a | b)</code>, correspondant bien à l'automate fini.</p>
+    </details>
+
+    <details>
+        <summary>3.4. Donnez l'automate fini correspondant au langage des "mots qui ont un nombre pair de 0" (défini sur <code>{ 0, 1 }</code>).</summary>
+        <p>Solution</p>
+    </details>
+
+    <details>
+        <summary>3.5. Donnez le complément de l'automate précédent.</summary>
+        <p>Solution</p>
     </details>
 
     <div class="license">
