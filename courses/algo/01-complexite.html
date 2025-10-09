@@ -512,7 +512,33 @@
     <h3>4. Mémoisation</h3>
 
     <details>
-        <summary>4.1. Mémoisez le programme suivant :</summary>
+        <summary>4.1. Implémentez une fonction renvoyant le nombre de façons de monter un escalier contenant <code>n</code> marches, en montant soit 1, soit 2 marches à la fois. Implémentez une version de la fonction sans mémoisation et une version avec.</summary>
+        <p>Sans mémoisation :</p>
+        <pre>
+    public static int climbStairs(int n) {
+        if(n <= 1) {
+            return 1;
+        }
+
+        return climbStairs(n - 1) + climbStairs(n - 2);
+    }
+        </pre>
+        <p>Avec mémoisation :</p>
+        <pre>
+    public static int climbStairsMemo(int n, int[] memo) {
+        if(n <= 1) {
+            return 1;
+        }
+
+        if(memo[n] != -1) {
+            return memo[n];
+        }
+
+        memo[n] = climbStairs(n - 1, memo) + climbStairs(n - 2, memo);
+
+        return memo[n];
+    }
+        </pre>
     </details>
 
 
