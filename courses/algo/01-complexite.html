@@ -443,8 +443,25 @@
     </details>
 
     <details>
+        <summary>3.2. Simplifiez, triez, et donnez l'ordre de grandeur ainsi que le nom français des complexités suivantes :
+            <img src="../../images/log_exercice.png" alt="Image">
+        </summary>
+        <p>Les ordres de grandeurs sont triés du plus rapide au plus lent :</p>
+        <ul>
+            <li><code>n + (log_2 n)^4 => O(n) => Linéaire</code></li>
+            <li><code>n * log_2(n^4) => 4nlog(n) => O(nlogn) => Loglinéaire</code></li>
+            <li><code>log_2(n!) => +/- nlogn avec l'approximation de Stirling => O(nlogn) => Loglinéaire</code></li>
+            <li><code>log_2(n^n) => O(nlogn) => Loglinéaire</code></li>
+            <li><code>n * (log_2(n))^4 => O(n(logn)^4) => Polyloglinéaire (de puissance 4)</code></li>
+            <li><code>2^n => O(2^n) => Exponentielle base 2</code></li>
+            <li><code>2^2n => (2^2)^n => O(4^n) => Exponentielle base 4</code></li>
+            <li><code>(2^2)^n => O(4^n) => Exponentielle base 4</code></li>
+        </ul>
+    </details>
+
+    <details>
         <summary>
-            3.2. Donnez la complexité en temps de la fonction suivante :
+            3.3. Donnez la complexité en temps de la fonction suivante :
             <pre>
     public static int funcA(int n) {
         int u = 0;
@@ -479,7 +496,7 @@
 
     <details>
         <summary>
-            3.3. Donnez la complexité en temps de la fonction suivante :
+            3.4. Donnez la complexité en temps de la fonction suivante :
             <pre>
     public static int funcB(int n) {
         int r = 0;
