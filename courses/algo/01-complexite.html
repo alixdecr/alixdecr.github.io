@@ -407,7 +407,28 @@
 
     <details>
         <summary>2.3. Inverser une chaîne de caractères.</summary>
-        <p>Solution</p>
+                <p>Fonction itérative :</p>
+        <pre>
+    public static String invertIterative(String str) {
+        StringBuilder reversed = new StringBuilder();
+
+        for(int i = str.length() - 1; i >= 0; i--) {
+            reversed.append(str.charAt(i));
+        }
+
+        return reversed.toString();
+    }
+        </pre>
+        <p>Fonction récursive :</p>
+        <pre>
+    public static String invertRecursive(String str) {
+        if(str == null || str.length() <= 1) {
+            return str;
+        }
+
+        return invertRecursive(str.substring(1)) + str.charAt(0);
+    }
+        </pre>
     </details>
 
     <h3>3. Complexité</h3>
