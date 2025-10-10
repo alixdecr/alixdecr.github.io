@@ -40,7 +40,7 @@
 
     <h2 id="langage-fini">Langage Fini</h2>
 
-    <p>Un <b>langage fini</b> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p>
+    <p>Un <b>langage fini</b> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionnaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p>
 
     <p><code>{ le, la, les, chien, chat, bleu, rouge, ... }</code></p>
 
@@ -68,7 +68,7 @@
 
     <h2 id="expression-reguliere">Expression Régulière</h2>
 
-    <p>Une <b>expression régulière</b>, également appellée <b>regex</b> (<i>regular expression</i> en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p>
+    <p>Une <b>expression régulière</b>, également appelée <b>regex</b> (<i>regular expression</i> en anglais), est une représentation de la structure des mots qui peuvent être générés pour un langage régulier donné. Une expression régulière consiste en une des deux manières de représenter un langage régulier, l'autre étant d'utiliser un automate fini. Le concept d'expression régulière que nous voyons dans ce cours est similaire au concept d'expression régulière utilisé dans des langages de programmation pour le <i>pattern matching</i>. Cependant, elle est sous une forme un peu plus mathématique.</p>
 
     <p>Afin de comprendre les éléments syntaxiques utilisés dans une expression régulière, nous considérons l'alphabet <code>Σ = { a, b }</code>.</p>
 
@@ -128,8 +128,8 @@
     <p><b>Exposant</b> : indique le nombre de fois qu'un élément est répété. Si une portée est indiquée, l'élément peut être répété entre les valeurs de la portée.</p>
 
     <ul>
-        <li>L'expression régulière <code>a^3</code> peut générér le mot <code>aaa</code>.</li>
-        <li>L'expression régulière <code>a^[2-5]</code> peut générér les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparait entre <code>2</code> et <code>5</code> fois".</li>
+        <li>L'expression régulière <code>a^3</code> peut générer le mot <code>aaa</code>.</li>
+        <li>L'expression régulière <code>a^[2-5]</code> peut générer les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparaît entre <code>2</code> et <code>5</code> fois".</li>
     </ul>
 
 
@@ -167,7 +167,7 @@
         <li><b>Non-déterministe</b> : un automate fini est dit non-déterministe si au moins un de ses états comporte une même transition plusieurs fois, ou bien contient des "ε transitions".</li>
         <li><b>Minimal</b> : un automate fini est dit minimal s'il contient un nombre minimal d'états.</li>
         <li><b>Complet</b> : un automate fini est dit complet s'il définit de chaque état une transition pour chaque symbole de l'alphabet utilisé.</li>
-        <li><b>Complément</b> : le complément d'un automate fini (étant déterministe et complet) est obtenu en remplacant ses états finaux par des états non-finaux, et inversement.</li>
+        <li><b>Complément</b> : le complément d'un automate fini (étant déterministe et complet) est obtenu en remplaçant ses états finaux par des états non-finaux, et inversement.</li>
     </ul>
 
     <p class="info">Le complément d'un langage régulier est toujours régulier. Si un langage n'est pas régulier, il ne peut pas être représenté par un automate fini (ou une expression régulière), et donc son complément non plus.</p>
