@@ -177,6 +177,7 @@
     <details>
         <summary>Tout sous-langage d'un langage régulier est régulier.</summary>
         <p>Faux (piège)</p>
+        <p>Exemple : le langage de tous les mots possibles sur $\{0, 1\}$ est bien régulier. Cependant, le langage des palindromes sur $\{0, 1\}$ est bien un sous-ensemble du précédent, mais n'est pas régulier.</p>
     </details>
 
     <h3>Reconnaissance de Langages</h3>
@@ -185,26 +186,39 @@
 
     <details>
         <summary>Le langage des mots de la forme $a^nc^nc^n, n \ge 0$.</summary>
+        <p>Peut être simplifié par $a^n c^{2n}$</p>
+        <p>Ne peut pas être représenté par une regex car l'information $n$ ne peut pas être retenue ; Par exemple, si exposant $< 5$, il aurait été possible de trouver une regex mais pas le cas ici.</p>
+        <p>$S \rightarrow \epsilon | aScc$</p>
     </details>
 
     <details>
         <summary>Le langage des mots de la forme $a^nba^n, n \ge 0$.</summary>
+        <p>$S \rightarrow aSa | b$</p>
+        <p>Pas de mot vide ($\epsilon$) car il y a toujours au moins un $b$.</p>
     </details>
 
     <details>
         <summary>Le langage des mots de la forme $a^nb^m, n > m \ge 0$.</summary>
+        <p>$S \rightarrow aSb | aS | a$</p>
+        <p>Pas de mot vide ($\epsilon$) car la condition impose que $n \ge 1$, donc il y aura toujours au moins un $a$.</p>
     </details>
 
     <details>
         <summary>Le langage des mots qui contiennent autant de $a$ que de $b$ et aucun $c$.</summary>
+        <p>$S \rightarrow aSbS | bSaS | \epsilon$</p>
     </details>
 
     <details>
         <summary>Le langage des palindromes (les mots qui se lisent de la même façon du sens inverse).</summary>
+        <p>$S \rightarrow aSa | bSb | cSc | a | b | c | \epsilon$</p>
+        <p>Prend bien en compte les cas avec une lettre au milieu (e.g., $aca$) et cas avec 2 lettres au milieu (e.g., $bccb$) (= palindromes pairs et impairs)</p>
     </details>
 
     <details>
         <summary>Le langage des mots de la forme $c(a|b)^nc(a|b)^n c$.</summary>
+        $S \rightarrow c X c$ <br>
+	    $X \rightarrow Y X Y | c$ <br>
+	    $Y \rightarrow a |b$
     </details>
 
     <h3>Suppression d'Improductifs en Inaccessibles</h3>
@@ -217,6 +231,9 @@
             $A \rightarrow AB$ <br>
             $B \rightarrow b$
         </summary>
+        <p>$A$ est improductif</p>
+        <p>En supprimant $A$ car improductif, $B$ devient inaccessible</p>
+        <p>La grammaire hors-contexte devient simplement $S \rightarrow a$</p>
     </details>
 
     <details>
@@ -228,12 +245,54 @@
             $Y \rightarrow Z$ <br>
             $Z \rightarrow c | \epsilon$
         </summary>
+        <p>IMPRODUCTIFS</p>
+        <p>En appliquant l'algorithme, on peut en premier lieu marquer les NT étant productifs sur base des terminaux présents :</p>
+        <ul>
+            <li>On marque $X$ comme productif car il produit un terminal $a$.</li>
+            <li>On marque $Z$ comme productif car il produit un terminal $c$.</li>
+            <li>On marque $Y$ comme productif car il produit $Z$, qui est lui-même productif.</li>
+            <li>On marque $U$ comme productif car il produit $aYb$, contenant $Y$ qui est lui-même productif et $a, b$ qui sont des terminaux.</li>
+            <li>On marque le NT de départ $S$ comme productif car il produit $U$, qui est lui-même productif.</li>
+        </ul>
+        <p>On trouve donc les NT productifs suivants : $\{S, U, X, Y, Z\}$. On va à présent supprimer les NT de la grammaire n'étant pas repris dans l'ensemble des productifs :</p>
+        <ul>
+            <li>On supprime $T$ dans $S$.</li>
+            <li>On supprime $V$ dans $U$.</li>
+            <li>On supprime $V \rightarrow W$ car il n'est pas productif.</li>
+            <li>On supprime $W$ dans $X$.</li>
+        </ul>
+        <p>INACCESSIBLES</p>
+        <p>En appliquant l'algorithme, on peut marquer les NT accessibles sur base des NT produits par des accessibles :</p>
+        <ul>
+            <li>$S$ est le symbole de départ, il est donc accessible.</li>
+            <li>$U$ est compris dans le NT accessible $S$, il est donc accessible aussi.</li>
+            <li>$Y$ est compris dans le NT accessible $U$, il est donc accessible aussi.</li>
+            <li>$Z$ est compris dans le NT accessible $Y$, il est donc accessible aussi.</li>
+        </ul>
+        <p>On obtient finalement la grammaire réduite suivante :</p>
+        $S \rightarrow U$ <br>
+        $U \rightarrow a Y b$ <br>
+        $Y \rightarrow Z$ <br>
+        $Z \rightarrow c | \epsilon$
+        <p>Ce qui est davantage simplifié en :</p>
+        $S \rightarrow a Y b$ <br>
+        $Y \rightarrow c | \epsilon$
+        <p>Et même encore :</p>
+        $S \rightarrow acb | ab$
     </details>
 
     <h3>Dérivation et Arbres</h3>
 
     <details>
         <summary>Écrivez la dérivation et l'arbre syntaxique du mot $aacccc$ pour la grammaire $a^nc^nc^n, n \ge 0$.</summary>
+
+        <p>Dérivation :</p>
+        $S \rightarrow aScc$ <br>
+		$S \rightarrow aaScccc$ <br>
+		$S \rightarrow aa \epsilon cccc$ <br>
+		$S \rightarrow aacccc$
+        <p>Ici, dérivation à gauche = on choisit le NT le + à gauche à chaque étape.</p>
+        <p>Arbre syntaxique : cf. tableau.</p>
     </details>
 
     <details>
@@ -243,18 +302,43 @@
             $Y \rightarrow XB | b$ <br>
             $Z \rightarrow a$
         </summary>
+        <p>Dérivation :</p>
+        $X \rightarrow YXZ$ <br>
+		$X \rightarrow YXa$ <br>
+		$X \rightarrow bXa$ <br>
+		$X \rightarrow bXba$ <br>
+		$X \rightarrow bbba$
+        <p>Arbre syntaxique :</p>
+
+        <img src="images/ex-arbre-syntaxique-2.png" alt="Image">
     </details>
 
     <details>
         <summary>Donnez maintenant une dérivation gauche de cette phrase, ainsi que l'arbre syntaxique qui y correspond.</summary>
+        <p>Rappel : dérivation gauche = toujours remplacer le NT le + à gauche.</p>
+        <p>Dérivation :</p>
+        $X \rightarrow YXZ$ <br>
+		$X \rightarrow bXZ$ <br>
+		$X \rightarrow bXbZ$ <br>
+		$X \rightarrow bbbZ$ <br>
+		$X \rightarrow bbba$
+		<p>Arbre syntaxique : cf. tableau.</p>
     </details>
 
     <details>
         <summary>Donnez une autre dérivation gauche possible (et donc un autre arbre syntaxique) pour cette même phrase.</summary>
+        <p>Dérivation :</p>
+        $X \rightarrow YXZ$ <br>
+		$X \rightarrow XbXZ$ <br>
+		$X \rightarrow bbXZ$ <br>
+		$X \rightarrow bbbZ$ <br>
+		$X \rightarrow bbba$
+		<p>Arbre syntaxique : cf. tableau.</p>
     </details>
 
     <details>
         <summary>Cette grammaire est-elle ambiguë ? Prouvez votre réponse.</summary>
+        <p>Oui, cette grammaire est ambiguë. En effet, il est possible de générer des arbres syntaxiques différents en suivant la grammaire décrite, ce qui la rend donc ambiguë.</p>
     </details>
 
     <h3>Automates à Pile</h3>
