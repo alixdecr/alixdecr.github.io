@@ -25,6 +25,170 @@
 
     <p><i>Dernière mise à jour : 13/10/2025</i></p>
 
+    <h2>Spécification et Vocabulaire</h2>
+
+    <p><b>Spécification</b> : document/description détaillée qui explique ce que doit faire un programme. Le but d'une spécification est principalement de définir ce qu'un programme doit accomplir, mais elle permet également d'éviter les mauvaises compréhensions du code, d'avoir une idée claire du programme avant de le coder, de servir de référence, etc.</p>
+
+    <p>Pour définir les comportements attendus de programmes, on va utiliser les notions suivantes :</p>
+
+    <ul>
+        <li><b>Précondition</b> : condition qui doit être vraie avant l'exécution d'un programme pour que celui-ci fonctionne correctement.</li>
+        <li><b>Postcondition</b> : condition qui doit être vraie après l'exécution d'un programme, à condition que le code se soit terminé correctement. Elle décrit le résultat attendu ou l'état garanti une fois que le code a été exécuté avec succès.</li>
+        <li><b>Assertion</b> : condition qui doit être vraie à un point donné dans l'exécution d'un programme, utilisée pour vérifier la validité d'un état ou d'une logique pendant l'exécution.</li>
+        <li><b>Invariant</b> : condition qui doit toujours être vraie pendant toute la durée de vie d'un objet ou tout au long de l'exécution d'un programme, généralement entre les appels de méthodes ou au début et à la fin de chaque méthode.</li>
+    </ul>
+
+    <h2>Java Modeling Language (JML)</h2>
+
+    <h3>Définition</h3>
+
+    <p><b>JML (Java Modeling Language)</b> est un langage de spécification formelle utilisé pour annoter des programmes écrits en Java. Il permet de décrire le comportement attendu d'une classe ou d'une méthode à l'aide de préconditions, postconditions, invariants, et d'autres assertions qui peuvent être vérifiées formellement. L'objectif est de permettre aux développeurs de spécifier précisément ce qu'un programme doit faire, ce qui facilite la détection de bugs et la vérification de la conformité du code à ses spécifications.</p>
+
+    <p>JML fournit une sémantique formelle et rigoureuse, tout en étant accessible pour les développeurs Java.</p>
+
+    <h3>Syntaxe</h3>
+
+    <p>Une spécification JML s'écrit dans un commentaire Java (les deux syntaxes de commentaires sont valides), juste avant la partie de code que l'on spécifie. Ces commentaires sont interprétés comme des annotations JML lorsqu'ils contiennent un symbole <code>@</code> au début du commentaire. Il ne faut pas oublier de terminer chaque annotation JML par un symbole <code>;</code>, comme pour une ligne de code classique en Java.</p>
+
+<pre>
+// @ JML Specification;
+
+/* @ JML Specification; */</pre>
+
+    <p>La syntaxe de base en JML comprend les éléments suivants :</p>
+
+    <p><code>requires</code> : définit une précondition pour la fonction.</p>
+
+<pre>
+// Example
+// @ requires a != null && a.length > 0;</pre>
+
+    <p><code>ensures</code> : définit une postcondition pour la fonction.</p>
+
+<pre>
+// Example
+// @ ensures a >= 0 || b >= 0;</pre>
+
+    <p><code>signals</code> : définit une postcondition pour quand la fonction renvoie une exception.</p>
+
+    <p><code>signals_only</code> : définit quelles exceptions peuvent être renvoyées quand la précondition donnée tient.</p>
+
+    <p><code>assignable</code> : définit quelles variables/quels champs peuvent être modifiés par la fonction. Les variables locales (i.e., déclarées dans la fonction) ne nécessitent pas de clause <code>assignable</code> ; Surtout utilisé pour les variables qui résident hors de la fonction spécifiée.</p>
+
+<pre>
+// Example
+// @ assignable \nothing;
+// Here, nothing is assignable
+// OR
+// @ assignable x, y;
+// Here, x and y will be modified</pre>
+
+    <p><code>pure</code> : déclare qu'une fonction n'a pas d'effet(s) de bord (no side effects). Similaire à <code>assignable \nothing</code>, mais peut aussi renvoyer une exception. Une fonction dite <code>pure</code> est toujours censée terminer "normalement" (déterministe, renvoie toujours la même réponse pour un paramètre donné), ou bien renvoyer une erreur.</p>
+
+<pre>
+// Example
+// @ pure
+int square(int x) {
+    return x * x;
+}
+
+// Not pure
+int counter = 0;
+// ...
+int addCounter() {
+    counter++;
+    return counter;
+}</pre>
+
+    <p><code>invariant</code> : définit une propriété invariante de la fonction.</p>
+
+<pre>
+// Example
+// @ public invariant balance >= 0 && balance <= MAX_BALANCE;</pre>
+
+    <p><code>loop_invariant</code> : définit un invariant pour une boucle, qui doit tenir tant que la boucle est exécutée.</p>
+
+    <p><code>decreases</code> : utilisé pour démontrer la terminaison de boucle.</p>
+
+<pre>
+// Example
+// @ loop_invariant i >= 0 && i < MAX_LENGTH;
+// @ decreases tab.length - i;</pre>
+
+    <p><code>also</code> : permet de combiner des cas de spécifications, ou bien qu'une fonction hérite de spécifications (pas utilisé dans le cours).</p>
+
+    <p><code>assert</code> : définit une assertion en JML.</p>
+
+<pre>
+// Example
+// @ assert amount > 0 : "Deposit amount must be positive";</pre>
+
+    <p><code>public</code> : déclare une annotation JML publique.</p>
+
+<pre>
+// Example
+// @ public invariant balance >= 0;</pre>
+
+    <p><code>spec_public</code> : déclare un champ publique, uniquement visible par la spécification JML.</p>
+
+<pre>
+// Example
+private /*@ spec_public @*/ int balance;
+// The private balance field will be visible (public) for the JML specification</pre>
+
+    <p><code>\result</code> : utilisé comme identifiant/variable pour la valeur de retour de la fonction (lorsque la valeur de retour n'a pas de nom).</p>
+
+<pre>
+// Example
+// @ ensures (\result >= 0 && \result <= 10);
+// Here, we combine ensures and \result to create a JML annotation</pre>
+
+    <p><code>\old([expr])</code> : utilisé pour faire référence à l'ancienne valeur de <code>[expr]</code>, au début de la fonction avant l'exécution de ses lignes de code.</p>
+
+<pre>
+// Example
+// @ ensures balance == \old(balance) + amount;
+// Here, we ensure that the new balance is equal to the old balance, plus the amount</pre>
+
+    <p><code>(\forall [decl]; [range]; [body])</code> : permet de représenter une expression mathématique de type "pour tout" ($\forall$).</p>
+
+    <p><code>(\exists [decl]; [range]; [body])</code> : permet de représenter une expression mathématique de type "il existe" ($\exists$).</p>
+
+    <p><code>\typeof([var])</code> : permet de vérifier le type d'une valeur.</p>
+
+<pre>
+// Example
+// @ ensures (\typeof(x) == int)
+// Simplified version, as JML also contains \type (but accepted here)</pre>
+
+    <p><code>a ==> b</code> : représente que <code>a</code> implique <code>b</code>.</p>
+
+    <p><code>a <== b</code> : représente que <code>a</code> est impliqué par <code>b</code>.</p>
+
+    <p><code>a <==> b</code> : représente que <code>a</code> si et seulement si <code>b</code>.</p>
+
+    <p><code>==, !=, &&, ||, !, etc.</code> : JML emploie également la syntaxe logique de Java (et, ou, négation, etc.).</p>
+
+    <p><code>x > y ? x : y</code> : JML emploie également les opérateurs ternaires.</p>
+
+    <p><code>\max(), \min(), sum()</code> : JML fournit d'autres expressions de quantification.</p>
+
+    <p><code>(*...*), JML.informal("...")</code> : permet de représenter une expression de façon informelle. <b>À éviter le plus possible! Ne pas utiliser à l'examen.</b></p>
+
+<pre>
+// Example
+// @ ensures (* data structure is OK *);
+// OR 
+// @ ensures JML.informal("data structure is OK");</pre>
+
+    <h3>OpenJML</h3>
+
+    <p>Logiciel permettant de vérifier de façon formelle (statique ou bien dynamique) la validité des annotations JML.</p>
+
+    <p>Site web : <a href="https://www.openjml.org">https://www.openjml.org</a></p>
+
+    <p>Lien de téléchargement : <a href="https://github.com/OpenJML/OpenJML/releases">https://github.com/OpenJML/OpenJML/releases</a></p>
+
     <h2>Exercices</h2>
 
     <h2>License</h2>
