@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+
+    counter-reset: section;
+    counter-reset: question;
+}
+
+h1, h2, h3 {
+    border-bottom: 1px solid #999999;
+    margin: 2rem 0;
+}
+
+h2 {
+    counter-reset: subsection;
+    counter-increment: section;
+}
+
+h2::before {
+    content: counter(section) ". ";
+}
+
+h3 {
+    counter-increment: subsection;
+}
+
+h3::before {
+    content: counter(section) "." counter(subsection) ". ";
+}
+
+p {
+    margin: 1rem 0;
+}
+
+ol, ul {
+    margin: 1rem 0 1rem 2rem;
+}
+
+li {
+    margin: 0.2rem 0;
+}
+
+a {
+    color: #0084ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1100ff;
+}
+
+code, pre {
+    color: #ad0000;
+    font-size: larger;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+details {
+    background: #e4e4e4;
+    margin: 1rem 0;
+    padding: 0.5rem;
+
+    counter-increment: question;
+}
+
+details[open] summary {
+    color: #0084ff;
+}
+
+summary::before {
+    content: "Exercice " counter(question) ". ";
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    border: 1px solid #999999;
+    margin: 2rem auto;
+    max-width: 95%;
+}
+
+blockquote {
+    background-color: #d7edff;
+    padding: 0.5rem;
+}

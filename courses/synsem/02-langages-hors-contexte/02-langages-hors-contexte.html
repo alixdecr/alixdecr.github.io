@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <!-- load MathJax for math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <title>Chapitre 2 - Langages Hors-Contexte</title>
+</head>
+
+<body>
+    <h1>Chapitre 2 - Langages Hors-Contexte</h1>
+
+    <p><i>Dernière mise à jour : 13/10/2025</i></p>
+
+    <h2>Langages Hors-Contexte</h2>
+
+    <p>Lors du chapitre précédent, nous avons vu les langages réguliers. Bien qu'intéressants, ces types de langage avaient une principale faiblesse : une mémoire finie. Par exemple, considérons l'alphabet $\{ a, b \}$ et le langage "les mots qui ont autant de $a$ que de $b$". Pour dire que ce langage est régulier, il faut pouvoir le représenter par une expression régulière (ou bien un automate fini). Cependant, on se rend vite compte qu'il est impossible de trouver une expression régulière pour ce langage :</p>
+
+    <ul>
+        <li>Si l'on utilise $(ab)*$, on obtient bien des mots avec autant de $a$ que de $b$. Cependant, les mots du genre $aabb$ ou $aabbba$ ne peuvent pas être générés, alors qu'ils contiennent bien autant de $a$ que de $b$.</li>
+
+        <li>Si l'on utilise $(a|b)*$, on peut obtenir des mots qui n'ont pas autant de $a$ que de $b$.</li>
+
+        <li>...</li>
+    </ul>
+
+    <p>En conséquence, on ne trouvera jamais une expression régulière permettant de représenter ce langage. Cependant, nous allons découvrir un nouveau type de langage qui permet de le représenter : les langages <i>hors-contexte</i>.</p>
+
+    <p>Un <b>langage hors-contexte</b> est un langage qui peut être représenté par une grammaire hors-contexte ou un automate à pile. Souvent, on prouve qu'un langage est régulier en le représentant par une de ces deux formes-ci.</p>
+
+    <blockquote>Un langage hors-contexte n'est pas nécessairement un langage régulier. Ceci est dû au fait que les langages réguliers sont des sous-ensembles des langages hors-contexte, donc on peut très bien trouver un langage hors-contexte qui n'est pas régulier.</blockquote>
+
+    <h2>Classification de Langages</h2>
+
+    <p>Nous pouvons classifier les différents types de langages que nous avons vu :</p>
+
+    <img src="images/classification-langages.png" alt="Image">
+
+    <p>La représentation peut se visualiser comme les couches d'un oignon, où chaque nouvelle couche apporte de la précision et de la restriction quant aux langages possibles à représenter. On voit visuellement que si un langage est fini, alors il est également régulier et hors-contexte. Si un langage n'est pas fini mais régulier, il reste hors-contexte.</p>
+
+    <h2>Grammaire Hors-Contexte</h2>
+
+    <p>Une <b>grammaire hors-contexte</b> est un type de grammaire formelle permettant de décrire la syntaxe d'un langage. Une grammaire hors-contexte peut comprendre les éléments suivants :</p>
+
+    <ul>
+        <li><b>Terminal</b> : élément/symbole qu'une grammaire hors-contexte peut générer. Un terminal est un élément le plus fondamental d'une grammaire hors-contexte, et est écrit en minuscules : $a$, $b$, $c$, $if$, $payment$, etc.</li>
+
+        <li><b>Non-Terminal</b> : élément intermédiaire d'une grammaire hors-contexte qui n'apparaît pas dans les phrases générées. Un non-terminal peut être interprété comme une référence vers une ou plusieurs productions (et de façon ultime vers des terminaux, si la grammaire est bien formée) possibles de la grammaire, et est écrit en majuscules (souvent, une seule lettre) : $S$, $X$, $A$, etc.</li>
+
+        <li><b>Symbole de Départ</b> : non-terminal servant de point d'entrée pour une grammaire hors-contexte. Souvent, il est représenté par $S$.</li>
+
+        <li><b>Production</b> : règle d'une grammaire hors-contexte qui indique comment un symbole non-terminal peut être remplacé par une suite d'autres symboles (terminaux et/ou non-terminaux). On représente une production par la forme $A \rightarrow b$, avec $A$ un symbole non-terminal et $b$ une suite de symboles (pouvant contenir des terminaux et des non terminaux, voire être vide).</li>
+    </ul>
+
+    <p>Par exemple, prenons la grammaire hors-contexte $S \rightarrow a$. Cette grammaire indique que lorsqu'on va dans le non-terminal $S$, on doit appliquer l'unique production $\rightarrow a$, c'est-à-dire générer le terminal $a$. Vu que le non-terminal $S$ est le symbole de départ, on sait que c'est le point d'entrée dans notre grammaire. En conséquence, cette grammaire simple représente le langages du mot $a$.</p>
+
+    <p>Prenons un exemple un peu plus avancé :</p>
+
+    $S \rightarrow a | B$ <br>
+    $B \rightarrow b | c | \epsilon$
+
+    <p>Dans cette grammaire hors-contexte, on retrouve le non-terminal de départ $S$ qui permet de produire soit un terminal $a$, soit un non-terminal $B$. Si l'on choisit de produire $B$, on doit aller voir ce qu'on peut générer dans les productions de $B$ : soit un terminal $b$, soit un terminal $c$, soit rien (représenté par un caractère epsilon $\epsilon$). En conséquence, cette grammaire permet de générer les mots suivants : $\{ a, b, c, \epsilon \}$.</p>
+
+    <p>Prenons un dernier exemple :</p>
+
+    $S \rightarrow aSa | X$ <br>
+    $X \rightarrow b | c$
+
+    <p>Cette grammaire hors-contexte représente le langage $L = \{a^nxa^n | x \in \{b, c\}, n \ge 0\}$. On remarque qu'il est possible d'utiliser le même non-terminal dans une production que celui qui le produit. Ce mécanisme de récursivité permet aux grammaires hors-contexte de générer des mots potentiellement infinis. On remarque également qu'on peut concaténer des terminaux et des non-terminaux tel que $aSa$. En faisant cela, l'élément entre les deux $a$ correspondra à une des productions de $S$.</p>
+
+    <h2>Dérivation et Arbre Syntaxique</h2>
+
+    <p><b>Dérivation</b> : en partant du non-terminal de départ d'une grammaire hors-contexte, montrer comment un mot peut être obtenu en suivant l'ensemble de règles définies par ce non-terminal. Si un mot peut être dérivé en suivant les règles d'une grammaire hors-contexte, alors ce mot peut être représenté par la grammaire hors-contexte.</p>
+
+    <p>Il est également possible de représenter une dérivation sous forme d'un <b>arbre syntaxique</b>. Si l'on reprend la grammaire précédente, nous pouvons représenter la dérivation du mot $aabaa$ sous forme d'un arbre syntaxique :</p>
+
+    <img src="images/ex-arbre-syntaxique.png" alt="Image">
+
+    <blockquote>S'il existe plusieurs dérivations possibles avec une grammaire hors-contexte pour un même mot, on dit que la grammaire hors-contexte est <b>ambiguë</b>.</blockquote>
+
+    <h2>Improductif et Inaccessible</h2>
+
+    <p>Il est possible qu'une grammaire hors-contexte soit malformée, menant à des problèmes de génération de mots et des problèmes de structure. Ces malformations peuvent être de deux types :</p>
+
+    <ul>
+        <li><b>Improductif</b> : un non-terminal est dit *improductif* si aucune dérivation à partir de ce non-terminal ne permet de produire une chaîne composée uniquement de symboles terminaux.</li>
+
+        <li><b>Inaccessible</b> : un non-terminal est dit *inaccessible* s'il n'est jamais atteint à partir du symbole de départ $S$ lors d'une dérivation.</li>
+    </ul>
+
+    <p>Par exemple, dans la grammaire hors-contexte suivante :</p>
+
+    $S \rightarrow A | B$ <br>
+    $A \rightarrow a | b$ <br>
+    $B \rightarrow Ba$ <br>
+    $C \rightarrow c | d$
+
+    <p>Le non-terminal $B$ est improductif (ne génère jamais une chaîne de terminaux) et le non-terminal $C$ est inaccessible (ne peut jamais être atteint en partant de $S$). En supprimant ces improductifs et inaccessibles, la grammaire devient :</p>
+
+    $S \rightarrow A$ <br>
+    $A \rightarrow a | b$
+
+    <h2>Automate à Pile</h2>
+
+    <p>Un <b>automate à pile</b> est une machine abstraite comportant les éléments suivants :</p>
+
+    <ul>
+        <li>Un ensemble d'états.</li>
+
+        <li>Un état initial.</li>
+
+        <li>Un ensemble d'états terminaux.</li>
+
+        <li>Un ruban, permettant de lire un mot donné. La fin de lecture est représentée par le caractère $\#$.</li>
+
+        <li>Une tête de lecture (indique l'emplacement de lecture actuel).</li>
+
+        <li>Une pile LIFO (Last In First Out), permettant d'empiler et de dépiler des états.</li>
+
+        <li>Des règles de transition. $(I, a, F)$ = si l'état $I$ est en haut de la pile et que le token $a$ est rencontré en lecture du ruban, alors le token $a$ est lu et l'état $F$ va remplacer l'état $I$ dans la pile. Fonction de transition : on passe d'un état à un autre.</li>
+    </ul>
+
+    <p>Les automates à pile sont des généralisations des automates finis, car un automate à pile dispose d'une mémoire infinie organisée en pile.</p>
+
+    <p>Un automate à pile est dit <b>déterministe</b> si :</p>
+
+    <ul>
+        <li>L'automate ne comprend pas des transitions $\epsilon$ (ne rien lire et avancer "gratuitement"), c'est-à-dire pas de $(I, \epsilon, F)$.</li>
+
+        <li>L'automate ne permet pas la lecture du même symbole depuis un état vers des états différents, c'est-à-dire pas de $(I, a, E1)$ et $(I, a, E2)$, car $a$ pourrait prendre la transition vers l'état $E1$ ou $E2$.</li>
+    </ul>
+
+    <h2>Exercices</h2>
+
+    <h3>Vrai ou Faux</h3>
+
+    <p>Déterminez si les affirmations suivantes sont vraies ou fausses et justifiez.</p>
+
+    <details>
+        <summary>Tout langage régulier est hors-contexte.</summary>
+        <p>Vrai</p>
+    </details>
+
+    <details>
+        <summary>Tout langage hors-contexte est régulier.</summary>
+        <p>Faux</p>
+    </details>
+
+    <details>
+        <summary>Tout langage fini est hors-contexte.</summary>
+        <p>Vrai</p>
+    </details>
+
+    <details>
+        <summary>Toute expression régulière est exprimable sous la forme d'une grammaire hors-contexte.</summary>
+        <p>Vrai</p>
+    </details>
+
+    <details>
+        <summary>On peut représenter un langage fini par une grammaire hors-contexte et un automate fini.</summary>
+        <p>Vrai</p>
+    </details>
+
+    <details>
+        <summary>Tout sous-langage d'un langage régulier est régulier.</summary>
+        <p>Faux (piège)</p>
+    </details>
+
+    <h3>Reconnaissance de Langages</h3>
+
+    <p>Soit les langages suivants définis sur l'alphabet $\{a, b, c\}$. Déterminez s'ils sont hors-contexte et justifiez.</p>
+
+    <details>
+        <summary>Le langage des mots de la forme $a^nc^nc^n, n \ge 0$.</summary>
+    </details>
+
+    <details>
+        <summary>Le langage des mots de la forme $a^nba^n, n \ge 0$.</summary>
+    </details>
+
+    <details>
+        <summary>Le langage des mots de la forme $a^nb^m, n > m \ge 0$.</summary>
+    </details>
+
+    <details>
+        <summary>Le langage des mots qui contiennent autant de $a$ que de $b$ et aucun $c$.</summary>
+    </details>
+
+    <details>
+        <summary>Le langage des palindromes (les mots qui se lisent de la même façon du sens inverse).</summary>
+    </details>
+
+    <details>
+        <summary>Le langage des mots de la forme $c(a|b)^nc(a|b)^n c$.</summary>
+    </details>
+
+    <h3>Suppression d'Improductifs en Inaccessibles</h3>
+
+    <p>Supprimez les improductifs et les inaccessibles des grammaires suivantes.</p>
+
+    <details>
+        <summary>Grammaire 1 : <br>
+            $S \rightarrow a | A$ <br>
+            $A \rightarrow AB$ <br>
+            $B \rightarrow b$
+        </summary>
+    </details>
+
+    <details>
+        <summary>Grammaire 2 : <br>
+            $S \rightarrow T | U$ <br>
+            $U \rightarrow aYb | V$ <br>
+            $V \rightarrow W$ <br>
+            $X \rightarrow W | a$ <br>
+            $Y \rightarrow Z$ <br>
+            $Z \rightarrow c | \epsilon$
+        </summary>
+    </details>
+
+    <h3>Dérivation et Arbres</h3>
+
+    <details>
+        <summary>Écrivez la dérivation et l'arbre syntaxique du mot $aacccc$ pour la grammaire $a^nc^nc^n, n \ge 0$.</summary>
+    </details>
+
+    <details>
+        <summary>Étant donné la grammaire suivante, donnez une dérivation possible ainsi que l'arbre syntaxique qui y correspond pour le mot $bbba$. <br>
+            $(S = X)$ <br>
+            $X \rightarrow b | YXZ | Xb$ <br>
+            $Y \rightarrow XB | b$ <br>
+            $Z \rightarrow a$
+        </summary>
+    </details>
+
+    <details>
+        <summary>Donnez maintenant une dérivation gauche de cette phrase, ainsi que l'arbre syntaxique qui y correspond.</summary>
+    </details>
+
+    <details>
+        <summary>Donnez une autre dérivation gauche possible (et donc un autre arbre syntaxique) pour cette même phrase.</summary>
+    </details>
+
+    <details>
+        <summary>Cette grammaire est-elle ambiguë ? Prouvez votre réponse.</summary>
+    </details>
+
+    <h3>Automates à Pile</h3>
+
+    <details>
+        <summary>Soit l'automate à pile ci-dessous, détaillez la reconnaissance des mots suivants : $ab, aaab, aba, ac, \epsilon, aaabbb, bbba$. <br>
+            $INIT : I$ <br>
+            $FIN : I, F$ <br>
+            $Transitions :$ <br>
+            $I, a, F$ <br>
+            $I, b, F$ <br>
+            $I, a, FB$ <br>
+            $B, a, BB$ <br>
+            $B, b, \epsilon$
+        </summary>
+    </details>
+
+    <details>
+        <summary>Cet automate est-il déterministe ? S'il n'est pas déterministe, déterminisez-le.</summary>
+    </details>
+
+    <h2>License</h2>
+
+    <p>&copy; 2025 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>.</p>
+</body>
+</html>

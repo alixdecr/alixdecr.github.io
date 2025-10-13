@@ -4,30 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../../styles/courses.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <!-- load MathJax for math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
     <title>Chapitre 1 - Complexité</title>
 </head>
+
 <body>
     <h1>Chapitre 1 - Complexité</h1>
 
-    <p class="last-update">Dernière mise à jour : 30/09/2025</p>
+    <p><i>Dernière mise à jour : 13/10/2025</i></p>
 
-    <div class="table-of-contents">
-        <p><b>Table des Matières</b></p>
-
-        <ol>
-            <li><a href="#algorithmique">Algorithmique</a></li>
-            <li><a href="#langage-java">Langage Java</a></li>
-            <li><a href="#types-de-fonctions">Types de Fonctions</a></li>
-            <li><a href="#complexite">Complexité</a></li>
-            <li><a href="#memoisation">Mémoisation</a></li>
-            <li><a href="#exercices">Exercices</a></li>
-        </ol>
-    </div>
-
-
-    <h2 id="algorithmique">Algorithmique</h2>
+    <h2>Algorithmique</h2>
 
     <p>Un <b>algorithme</b> est une séquence finie d'instructions rigoureuses permettant de résoudre un problème ou d'accomplir une tâche donnée. En d'autres termes, un algorithme est une méthode systématique qui, en partant de données en entrée, décrit étape par étape les actions à effectuer pour produire des données de sortie.</p>
 
@@ -71,9 +69,9 @@
     <p>En conclusion, nous avons réalisé un algorithme permettant de résoudre le problème du calcul de la somme de deux nombres. Nous avons implémenté cet algorithme de trois façons différentes : en langage naturel, en pseudocode, et en langage de programmation. Bien que la façon idéale de représenter un algorithme en informatique soit d'utiliser un langage de programmation, il est souvent utile de d'abord représenter un algorithme en langage naturel ou en pseudocode afin d'avoir une idée globale de son fonctionnement.</p>
 
 
-    <h2 id="langage-java">Langage Java</h2>
+    <h2>Langage Java</h2>
 
-    <p class="info">Dans le cadre de ce cours, nous allons utiliser le langage de programmation Java pour implémenter des algorithmes. Il est important de noter qu'on ne vous demande pas d'être des professionnels du langage. Ce qui compte surtout, c'est de comprendre les concepts liés aux algorithmes : savoir décomposer un problème, concevoir les étapes, spécifier, organiser les instructions, etc. Une fois que ces notions sont bien assimilées, il devient beaucoup plus facile de passer d'un langage à un autre (car les idées fondamentales restent les mêmes). Maîtriser les concepts liés aux algorithmes est bien plus précieux que de mémoriser la syntaxe de Java !</p>
+    <blockquote>Dans le cadre de ce cours, nous allons utiliser le langage de programmation Java pour implémenter des algorithmes. Il est important de noter qu'on ne vous demande pas d'être des professionnels du langage. Ce qui compte surtout, c'est de comprendre les concepts liés aux algorithmes : savoir décomposer un problème, concevoir les étapes, spécifier, organiser les instructions, etc. Une fois que ces notions sont bien assimilées, il devient beaucoup plus facile de passer d'un langage à un autre (car les idées fondamentales restent les mêmes). Maîtriser les concepts liés aux algorithmes est bien plus précieux que de mémoriser la syntaxe de Java !</blockquote>
 
     <p><b>Type primitif</b> : <code>int</code> (entier), <code>boolean</code> (vrai/faux), <code>char</code> (caractère), <code>float</code>, <code>double</code>, etc.</p>
 
@@ -161,7 +159,7 @@
     <p>L'ensemble de ces concepts en Java devraient déjà consister en une bonne base pour commencer à implémenter des algorithmes.</p>
 
 
-    <h2 id="types-de-fonctions">Types de Fonctions</h2>
+    <h2>Types de Fonctions</h2>
 
     <p>Afin d'implémenter un algorithme, on va souvent devoir boucler (itérer plusieurs fois) pour résoudre le problème associé. En effet, plein de problèmes en ont besoin : trouver le minimum dans une liste, trier les éléments d'un tableau, etc. Dans les langages de programmation, on va pouvoir implémenter des fonctions qui bouclent de deux façons différentes :</p>
 
@@ -173,11 +171,11 @@
     <p>Souvent, l'itération et la récursion sont interchangeables.</p>
 
 
-    <h2 id="complexite">Complexité</h2>
+    <h2>Complexité</h2>
 
     <p>Vu que les ressources disponibles d'un ordinateur ne sont (pas encore) illimitées, il est important d'implémenter des algorithmes qui en prennent compte. Donc, lorsqu'on implémente un algorithme, on va mesurer son efficacité sur base de sa consommation en ressources.</p>
 
-    <p>La <b>complexité</b> algorithmique est une manière de mesurer l'efficacité d'un algorithme. Elle permet de savoir combien de <b>temps de calcul</b> ou combien de d'<b>espace mémoire</b> un algorithme va utiliser en fonction de la taille de son entrée (souvent représentée par <code>n</code>). Par exemple, si on a un algorithme qui trie une liste de <code>n</code> entiers, la complexité nous aide à estimer combien d'opérations seront nécessaires quand <code>n</code> devient très grand. La complexité aide notamment à comparer l'efficacité de différents algorithmes, et de choisir le plus adapté à un problème donné.</p>
+    <p>La <b>complexité</b> algorithmique est une manière de mesurer l'efficacité d'un algorithme. Elle permet de savoir combien de <b>temps de calcul</b> ou combien de d'<b>espace mémoire</b> un algorithme va utiliser en fonction de la taille de son entrée (souvent représentée par $n$). Par exemple, si on a un algorithme qui trie une liste de $n$ entiers, la complexité nous aide à estimer combien d'opérations seront nécessaires quand $n$ devient très grand. La complexité aide notamment à comparer l'efficacité de différents algorithmes, et de choisir le plus adapté à un problème donné.</p>
 
     <p>Selon la ressource, on peut mesurer deux types de complexités :</p>
 
@@ -186,27 +184,27 @@
         <li><b>Complexité en espace</b> : indique combien de mémoire l'algorithme va utiliser.</li>
     </ul>
 
-    <p>On utilisera la notation grand <code>O</code> pour représenter la complexité d'un algorithme en fonction des entrées <code>n</code>. Par exemple, <code>O(n)</code> représente une complexité linéaire. Afin de comprendre l'impact de la complexité d'un algorithme, on peut visualiser le schéma suivant :</p>
+    <p>On utilisera la notation grand $O$ pour représenter la complexité d'un algorithme en fonction des entrées $n$. Par exemple, $O(n)$ représente une complexité linéaire. Afin de comprendre l'impact de la complexité d'un algorithme, on peut visualiser le schéma suivant :</p>
 
-    <img class="image" src="../../images/big-o-cheat-sheet.png" alt="Image">
+    <img src="images/big-o-cheat-sheet.png" alt="Image">
 
-    <p>On peut comprendre comment le temps ou l'espace utilisé par un algorithme augmente quand la taille de l'entrée <code>n</code> augmente, et donc en conséquence l'importance d'optimiser les implémentations d'algorithmes.</p>
+    <p>On peut comprendre comment le temps ou l'espace utilisé par un algorithme augmente quand la taille de l'entrée $n$ augmente, et donc en conséquence l'importance d'optimiser les implémentations d'algorithmes.</p>
 
     <p>Lorsqu'on implémente des algorithmes, on retrouve parfois des complexités "types" qui ont leur propre nom :</p>
 
     <ul>
-        <li><code>O(1)</code> : complexité <b>constante</b>.</li>
-        <li><code>O(log n)</code> : complexité <b>logarithmique</b>.</li>
-        <li><code>O(n)</code> : complexité <b>linéaire</b>.</li>
-        <li><code>O(n log n)</code> : complexité <b>linéarithmique</b> ou <b>loglinéaire</b>.</li>
-        <li><code>O(n^2)</code> : complexité <b>quadratique</b>.</li>
-        <li><code>O(2^n)</code> : complexité <b>exponentielle</b>.</li>
-        <li><code>O(n!)</code> : complexité <b>factorielle</b>.</li>
+        <li>$O(1)$ : complexité <b>constante</b>.</li>
+        <li>$O(log n)$ : complexité <b>logarithmique</b>.</li>
+        <li>$O(n)$ : complexité <b>linéaire</b>.</li>
+        <li>$O(n log n)$ : complexité <b>linéarithmique</b> ou <b>loglinéaire</b>.</li>
+        <li>$O(n^2)$ : complexité <b>quadratique</b>.</li>
+        <li>$O(2^n)$ : complexité <b>exponentielle</b>.</li>
+        <li>$O(n!)$ : complexité <b>factorielle</b>.</li>
     </ul>
 
-    <p>Il est possible de calculer la complexité d'un algorithme à partir de son code. L'idée est d'analyser le nombre d'opérations effectuées en fonction de la taille de l'entrée <code>n</code>.</p>
+    <p>Il est possible de calculer la complexité d'un algorithme à partir de son code. L'idée est d'analyser le nombre d'opérations effectuées en fonction de la taille de l'entrée $n$.</p>
 
-    <p><b>Opérations constantes</b> : les opérations qui ne dépendent pas de <code>n</code> ont une complexité constante <code>O(1)</code>, car peu importe la taille de l'entrée <code>n</code>, ces opérations prendront toujours le même temps à exécuter.</p>
+    <p><b>Opérations constantes</b> : les opérations qui ne dépendent pas de $n$ ont une complexité constante $O(1)$, car peu importe la taille de l'entrée $n$, ces opérations prendront toujours le même temps à exécuter.</p>
 
     <pre>
     public static void test(int n) {
@@ -229,7 +227,7 @@
     }
     </pre>
 
-    <p><b>Boucles</b> : lorsqu'une boucle itère en fonction de la taille d'entrée <code>n</code>, sa complexité correspond également au nombre d'itérations <code>n</code>. Il faut faire attention car certaines boucles peuvent itérer plus rapidement et donc ont une complexité inférieure à <code>n</code>. Lorsque des boucles sont imbriquées, on multiplie leurs complexités.</p>
+    <p><b>Boucles</b> : lorsqu'une boucle itère en fonction de la taille d'entrée $n$, sa complexité correspond également au nombre d'itérations $n$. Il faut faire attention car certaines boucles peuvent itérer plus rapidement et donc ont une complexité inférieure à $n$. Lorsque des boucles sont imbriquées, on multiplie leurs complexités.</p>
 
     <pre>
     public static void test(int n) {
@@ -254,20 +252,20 @@
 
     <p><b>Récursions</b> : pour calculer la complexité d'un programme contenant de la récursion, on utilise des <b>équations récurrentes</b>.</p>
 
-    <img class="image" src="../../images/equations-recurrentes.png" alt="Image">
+    <img src="images/equations-recurrentes.png" alt="Image">
 
-    <p>Pour trouver la forme de l'équation, on regarde la forme de la récursion <code>cT(...)</code> et la forme du reste du code <code>bn^k</code>. En fonction de l'équation récurrente formée, on peut trouver la complexité finale à l'aide du tableau.</p>
+    <p>Pour trouver la forme de l'équation, on regarde la forme de la récursion $cT(...)$ et la forme du reste du code $bn^k$. En fonction de l'équation récurrente formée, on peut trouver la complexité finale à l'aide du tableau.</p>
 
     <p><b>Simplifications</b> : il existe des règles à appliquer pour trouver la forme générale d'une complexité.</p>
 
-    <img class="image" src="../../images/regles-o.png" alt="Image">
+    <img src="images/regles-o.png" alt="Image">
 
     <p><b>Formules log</b> : il existe également des formules pour transformer/simplifier des expressions logarithmiques.</p>
 
-    <img class="image" src="../../images/regles-log.png" alt="Image">
+    <img src="images/regles-log.png" alt="Image">
 
 
-    <h2 id="memoisation">Mémoisation</h2>
+    <h2>Mémoisation</h2>
 
     <p>La <b>mémoisation</b> est une technique d'optimisation pour les algorithmes récursifs (qui recalculent souvent les mêmes résultats). L'idée est simple : stocker les résultats déjà calculés dans une structure (tableau, liste, dictionnaire, etc.) pour ne pas devoir les recalculer. Cela permet souvent de réduire la complexité des algorithmes récursifs qui explorent plusieurs fois les mêmes sous-problèmes.</p>
 
@@ -291,18 +289,18 @@
 
     <p>On peut voir une illustration du principe de mémoisation pour Fibonacci ci-dessous :</p>
 
-    <img class="image" src="../../images/memoisation-fibonacci-example.png" alt="Image">
+    <img src="images/memoisation-fibonacci-example.png" alt="Image">
 
 
-    <h2 id="exercices">Exercices</h2>
+    <h2>Exercices</h2>
 
 
-    <h3>1. Algorithmes</h3>
+    <h3>Algorithmes</h3>
 
     <p>Implémentez des algorithmes en langage naturel, pseudocode, et en Java pour résoudre les problèmes suivants :</p>
 
     <details>
-        <summary>1.1. Trouver le maximum entre deux entiers.</summary>
+        <summary>Trouver le maximum entre deux entiers.</summary>
         <pre>
     public static int max(int a, int b) {
         if(a > b) {
@@ -316,7 +314,7 @@
     </details>
 
     <details>
-        <summary>1.2. Afficher tous les entiers naturels inférieurs à un entier naturel donné.</summary>
+        <summary>Afficher tous les entiers naturels inférieurs à un entier naturel donné.</summary>
         <pre>
     public static void printNumbersBelow(int x) {
         if(x <= 0) {
@@ -331,7 +329,7 @@
     </details>
 
     <details>
-        <summary>1.3. Déterminer si un entier est pair ou impair.</summary>
+        <summary>Déterminer si un entier est pair ou impair.</summary>
         <pre>
     public static boolean isEven(int x) {
         return n % 2 == 0;
@@ -340,12 +338,12 @@
     </details>
 
 
-    <h3>2. Itération et Récursion</h3>
+    <h3>Itération et Récursion</h3>
 
     <p>Implémentez des algorithmes en Java dans des fonctions itératives et récursives pour résoudre les problèmes suivants :</p>
 
     <details>
-        <summary>2.1. Renvoyer la valeur minimale d'un tableau d'entiers.</summary>
+        <summary>Renvoyer la valeur minimale d'un tableau d'entiers.</summary>
         <p>Fonction itérative :</p>
         <pre>
     public static int tabMinIterative(int[] tab) {
@@ -380,7 +378,7 @@
     </details>
 
     <details>
-        <summary>2.2. Étant donné un nombre <code>n</code>, calculer la somme de <code>1</code> à <code>n</code>.</summary>
+        <summary>Étant donné un nombre <code>n</code>, calculer la somme de <code>1</code> à <code>n</code>.</summary>
         <p>Fonction itérative :</p>
         <pre>
     public static int sumIterative(int n) {
@@ -406,7 +404,7 @@
     </details>
 
     <details>
-        <summary>2.3. Inverser une chaîne de caractères.</summary>
+        <summary>Inverser une chaîne de caractères.</summary>
                 <p>Fonction itérative :</p>
         <pre>
     public static String invertIterative(String str) {
@@ -431,10 +429,10 @@
         </pre>
     </details>
 
-    <h3>3. Complexité</h3>
+    <h3>Complexité</h3>
 
     <details>
-        <summary>3.1. Simplifiez l'ordre de grandeur suivant : <code>log(n^2) + (log(2^n))^2 + log(4^n) + n * log(n)</code></summary>
+        <summary>Simplifiez l'ordre de grandeur suivant : <code>log(n^2) + (log(2^n))^2 + log(4^n) + n * log(n)</code></summary>
         <p><code>2logn + (nlog2)^2 + nlog4 + n * logn</code></p>
         <p><code>2logn + (n * 1)^2 + (n * 0.6) + n * logn</code></p>
         <p><code>2logn + n^2 + 0.6n + nlogn</code></p>
@@ -443,8 +441,8 @@
     </details>
 
     <details>
-        <summary>3.2. Simplifiez, triez, et donnez l'ordre de grandeur ainsi que le nom français des complexités suivantes :
-            <img src="../../images/log_exercice.png" alt="Image">
+        <summary>Simplifiez, triez, et donnez l'ordre de grandeur ainsi que le nom français des complexités suivantes :
+            <img src="images/log_exercice.png" alt="Image">
         </summary>
         <p>Les ordres de grandeur sont triés du plus rapide au plus lent :</p>
         <ul>
@@ -461,7 +459,7 @@
 
     <details>
         <summary>
-            3.3. Donnez la complexité en temps de la fonction suivante :
+            Donnez la complexité en temps de la fonction suivante :
             <pre>
     public static int funcA(int n) {
         int u = 0;
@@ -496,7 +494,7 @@
 
     <details>
         <summary>
-            3.4. Donnez la complexité en temps de la fonction suivante :
+            Donnez la complexité en temps de la fonction suivante :
             <pre>
     public static int funcB(int n) {
         int r = 0;
@@ -547,10 +545,10 @@
     </details>
 
 
-    <h3>4. Mémoisation</h3>
+    <h3>Mémoisation</h3>
 
     <details>
-        <summary>4.1. Implémentez une fonction renvoyant le nombre de façons de monter un escalier contenant <code>n</code> marches, en montant soit 1, soit 2 marches à la fois. Implémentez une version de la fonction sans mémoisation et une version avec.</summary>
+        <summary>Implémentez une fonction renvoyant le nombre de façons de monter un escalier contenant <code>n</code> marches, en montant soit 1, soit 2 marches à la fois. Implémentez une version de la fonction sans mémoisation et une version avec.</summary>
         <p>Sans mémoisation :</p>
         <pre>
     public static int climbStairs(int n) {
@@ -579,11 +577,8 @@
         </pre>
     </details>
 
+    <h2>License</h2>
 
-    <div class="license">
-        <p>&copy; 2025 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>. En gros, vous êtes libres de copier/redistribuer le contenu de cette page, sans utilisation commerciale ni modifications.</p>
-
-        <img src="../../images/license.png" alt="CC BY-NC-ND 4.0 License Image">
-    </div>
+    <p>&copy; 2025 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>.</p>
 </body>
 </html>
