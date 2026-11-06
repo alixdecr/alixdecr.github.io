@@ -377,20 +377,20 @@ S3 = ε
     <p><strong>Étape 2</strong> : Substituer les équations jusqu'à la première. Si une équation est récursive, appliquer le <em>Lemme d'Arden</em>.</p>
 
     <blockquote>
-        <p><strong>Lemme d'Arden</strong> : <code>Y = XY | Z &lt;=&gt; Y = X*.(Z)</code></p>
+        <p><strong>Lemme d'Arden</strong> : <code>Y = XY | Z <-> Y = X*.(Z)</code></p>
     </blockquote>
 
 <pre><code>S1 = a.S2 | b.ε
 S2 = b.S2 | c.S1 | a.ε
 
 S1 = a.S2 | b.ε
-S2 = b*.(c.S1 | a)           =&gt; Lemme d'Arden
+S2 = b*.(c.S1 | a)           -> Lemme d'Arden
 
 S1 = a.(b*.(c.S1 | a)) | b
 
-S1 = ab*cS1 | ab*a | b       =&gt; Distribution
+S1 = ab*cS1 | ab*a | b       -> Distribution
 
-S1 = (ab*c)* (ab*a | b)      =&gt; Lemme d'Arden
+S1 = (ab*c)* (ab*a | b)      -> Lemme d'Arden
 </code></pre>
 
     <p>On trouve donc l'expression régulière suivante : <code>(ab*c)* (ab*a | b)</code>, qui correspond bien à l'automate fini.</p>
