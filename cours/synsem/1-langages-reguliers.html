@@ -139,7 +139,7 @@
 
 <p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on voudrait représenter le langage <em>ab</em>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p>
 
-<p><img src="../images/synsem-1-exemple-automate.png" alt="Image"></p>
+<p><img src="images/1-exemple-automate.png" alt="Image"></p>
 
 <p>On remarque plusieurs éléments :</p>
 
@@ -154,7 +154,7 @@
 
 <p>Voyons à présent un automate un peu plus avancé, permettant de représenter le langage des "mots qui commencent et terminent par a" (toujours sur l'alphabet <code>Σ = { a, b }</code>) :</p>
 
-<p><img src="../images/synsem-1-exemple-automate-2.png" alt="Image"></p>
+<p><img src="images/1-exemple-automate-2.png" alt="Image"></p>
 
 <p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code> (à noter que le mot "a" tout seul n'est pas généré ici : cet automate ne reconnaît que les mots de taille au moins 2).</p>
 
@@ -350,7 +350,7 @@
 
 <p>On considère l'automate ci-dessous, défini sur l'alphabet <code>{ a, b, c }</code> :</p>
 
-<p><img src="../images/synsem-1-automate-exercice.png" alt="Image"></p>
+<p><img src="images/1-automate-exercice.png" alt="Image"></p>
 
 <h6>Donnez des mots de taille 1, 2, 3, 4, 5 qui sont reconnus par cet automate.</h6>
 <details>
@@ -369,7 +369,7 @@
     <summary>Réponse</summary>
     <p><strong>Étape 1</strong> : Représenter les états de l'automate dans un système d'équations. On n'oublie pas d'ajouter ε lorsque l'état est final.</p>
 
-<pre><code class="language-less">S1 = a.S2 | b.S3
+<pre><code>S1 = a.S2 | b.S3
 S2 = b.S2 | c.S1 | a.S3
 S3 = ε
 </code></pre>
@@ -380,7 +380,7 @@ S3 = ε
         <p><strong>Lemme d'Arden</strong> : <code>Y = XY | Z &lt;=&gt; Y = X*.(Z)</code></p>
     </blockquote>
 
-<pre><code class="language-less">S1 = a.S2 | b.ε
+<pre><code>S1 = a.S2 | b.ε
 S2 = b.S2 | c.S1 | a.ε
 
 S1 = a.S2 | b.ε
@@ -399,7 +399,7 @@ S1 = (ab*c)* (ab*a | b)      =&gt; Lemme d'Arden
 <h6>Donnez l'automate fini correspondant au langage des "mots qui ont un nombre pair de 0" (défini sur <code>{ 0, 1 }</code>).</h6>
 <details>
     <summary>Réponse</summary>
-    <p><img src="../images/synsem-1-automate-pair-0.png" alt="Image"></p>
+    <p><img src="images/1-automate-pair-0.png" alt="Image"></p>
 </details>
 
 <h6>Donnez le complément de l'automate précédent.</h6>

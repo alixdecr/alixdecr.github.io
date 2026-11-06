@@ -50,7 +50,7 @@
 
 <p>Nous pouvons classifier les différents types de langages que nous avons vus :</p>
 
-<p><img src="../images/synsem-2-classification-langages.png" alt="Image"></p>
+<p><img src="images/2-classification-langages.png" alt="Image"></p>
 
 <p>La représentation peut se visualiser comme les couches d'un oignon, où chaque nouvelle couche apporte de la précision et de la restriction quant aux langages possibles à représenter. On voit visuellement que si un langage est fini, alors il est également régulier et hors-contexte. Si un langage n'est pas fini mais régulier, il reste hors-contexte.</p>
 
@@ -70,7 +70,7 @@
 
 <p>Prenons un exemple un peu plus avancé :</p>
 
-<pre><code class="plaintext">S -> a | B
+<pre><code>S -> a | B
 B -> b | c | ε
 </code></pre>
 
@@ -78,7 +78,7 @@ B -> b | c | ε
 
 <p>Prenons un dernier exemple :</p>
 
-<pre><code class="plaintext">S -> aSa | X
+<pre><code>S -> aSa | X
 X -> b | c
 </code></pre>
 
@@ -91,7 +91,7 @@ X -> b | c
 
 <p>Il est également possible de représenter une dérivation sous forme d'un <strong>arbre syntaxique</strong>. Si l'on reprend la grammaire précédente, nous pouvons représenter la dérivation du mot $aabaa$ sous forme d'un arbre syntaxique :</p>
 
-<p><img src="../images/synsem-2-arbre-syntaxique.png" alt="Image"></p>
+<p><img src="images/2-arbre-syntaxique.png" alt="Image"></p>
 
 <blockquote>
     <p>S'il existe plusieurs dérivations possibles avec une grammaire hors-contexte pour un même mot, on dit que la grammaire hors-contexte est <strong>ambiguë</strong>.</p>
@@ -109,7 +109,7 @@ X -> b | c
 
 <p>Par exemple, dans la grammaire hors-contexte suivante :</p>
 
-<pre><code class="plaintext">S -> A | B
+<pre><code>S -> A | B
 A -> a | b
 B -> Ba
 C -> c | d
@@ -117,13 +117,13 @@ C -> c | d
 
 <p>Le non-terminal $B$ est improductif (ne génère jamais une chaîne de terminaux) et le non-terminal $C$ est inaccessible (ne peut jamais être atteint en partant de $S$). En supprimant ces improductifs et inaccessibles, la grammaire devient :</p>
 
-<pre><code class="plaintext">S -> A
+<pre><code>S -> A
 A -> a | b
 </code></pre>
 
 <p>Et encore plus simplement :</p>
 
-<pre><code class="plaintext">S -> a | b
+<pre><code>S -> a | b
 </code></pre>
 
 <blockquote>
@@ -215,7 +215,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> aScc | ε
+<pre><code>S -> aScc | ε
 </code></pre>
 </details>
 
@@ -229,7 +229,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> aSa | b
+<pre><code>S -> aSa | b
 </code></pre>
 
     <p>On n'ajoute pas de mot vide ($\varepsilon$) car il y aura toujours au moins un $b$ dans un mot généré par le langage.</p>
@@ -245,7 +245,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> aSb | aS | a
+<pre><code>S -> aSb | aS | a
 </code></pre>
 
     <p>Pas de mot vide ($\varepsilon$) car la condition impose que $n \ge 1$, donc il y aura toujours au moins un $a$.</p>
@@ -261,7 +261,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> aSbS | bSaS | ε
+<pre><code>S -> aSbS | bSaS | ε
 </code></pre>
 </details>
 
@@ -275,7 +275,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> aSa | bSb | cSc | a | b | c | ε
+<pre><code>S -> aSa | bSb | cSc | a | b | c | ε
 </code></pre>
 
     <p>Il ne faut pas oublier de prendre en compte les cas avec une lettre au milieu (e.g., $aca$) et cas avec 2 lettres au milieu (e.g., $bccb$) (= palindromes pairs et impairs).</p>
@@ -291,7 +291,7 @@ A -> a | b
         <li><strong>Hors-contexte ?</strong> Oui, il est possible de représenter le langage avec la grammaire hors-contexte suivante :</li>
     </ul>
 
-<pre><code class="plaintext">S -> cXc
+<pre><code>S -> cXc
 X -> YXY | c
 Y -> a | b
 </code></pre>
@@ -320,7 +320,7 @@ Y -> a | b
 <details>
     <summary>Réponse</summary>
 
-<pre><code class="plaintext">S -> a | A
+<pre><code>S -> a | A
 A -> AB
 B -> b
 </code></pre>
@@ -332,7 +332,7 @@ B -> b
 
     <p>La grammaire hors-contexte devient donc simplement :</p>
 
-<pre><code class="plaintext">S -> a
+<pre><code>S -> a
 </code></pre>
 </details>
 
@@ -340,7 +340,7 @@ B -> b
 <details>
     <summary>Réponse</summary>
 
-<pre><code class="plaintext">S -> T | U
+<pre><code>S -> T | U
 U -> aYb | V
 V -> W
 X -> W | a
@@ -382,7 +382,7 @@ Z -> c | ε
 
     <p>On obtient finalement la grammaire réduite suivante :</p>
 
-<pre><code class="plaintext">S -> U
+<pre><code>S -> U
 U -> aYb
 Y -> Z
 Z -> c | ε
@@ -390,13 +390,13 @@ Z -> c | ε
 
     <p>Ce qui est davantage simplifié en :</p>
 
-<pre><code class="plaintext">S -> aYb
+<pre><code>S -> aYb
 Y -> c | ε
 </code></pre>
 
     <p>Et même encore :</p>
 
-<pre><code class="plaintext">S -> acb | ab
+<pre><code>S -> acb | ab
 </code></pre>
 </details>
 
@@ -404,7 +404,7 @@ Y -> c | ε
 
 <p>Soit la grammaire hors-contexte suivante :</p>
 
-<pre><code class="plaintext">S -> O, S | O
+<pre><code>S -> O, S | O
 O -> debit X from A | credit X to A
 X -> 100 | 200 | 300
 A -> bob | alice | steve
@@ -426,7 +426,7 @@ A -> bob | alice | steve
 <details>
     <summary>Réponse</summary>
 
-<pre><code class="plaintext">S -> S + S | S * S | a
+<pre><code>S -> S + S | S * S | a
 </code></pre>
 
     <p>Cette grammaire est ambiguë car il existe plusieurs dérivations possibles pour un même mot du langage. Par exemple, le mot <code>a + a * a</code> peut être dérivé de deux façons différentes :</p>
