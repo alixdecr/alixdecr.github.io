@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Langages Réguliers</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/default.min.css">
 </head>
+
 <body>
-
-
+<nav></nav>
+<main>
 <h1>Chapitre 1 - Langages Réguliers</h1>
 
-<p class="last-update-p"><em>Dernière mise à jour : 11/02/2026</em></p>
+<p class="last-update-p">Dernière mise à jour : 11/02/2026</p>
 
 
 <h2>Langage, Syntaxe, Sémantique</h2>
@@ -29,7 +31,7 @@
 
 <h2>Langage Fini</h2>
 
-<p>Un <strong>langage fini</strong> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, le langage français est un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionnaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langages fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p>
+<p>Un <strong>langage fini</strong> est un langage dont tous les mots peuvent être énumérés exhaustivement. Par exemple, la langue française est généralement considérée comme un langage fini, car on pourrait énumérer tous les mots qui existent dedans. Une preuve est qu'on peut prendre un dictionnaire moderne, et y retrouver tous les mots du langage français. Pour représenter formellement un langage fini, nous allons utiliser un ensemble délimité par des crochets <code>{ }</code>, contenant tous les mots du langage séparés par des virgules. Si l'on reprend l'exemple du langage français, on le représenterait de la façon suivante :</p>
 
 <p><code>{ le, la, les, chien, chat, bleu, rouge, ... }</code></p>
 
@@ -42,7 +44,7 @@
 <ul>
     <li>Le langage anglais, qui comprend également un ensemble fini de mots : <code>{ this, there, that, orange, apple, house, garden, ... }</code>.</li>
     <li>Le langage <em>ChienChat</em>, un sous-ensemble du langage français qui comprend uniquement les mots "chien" et "chat" : <code>{ chien, chat }</code>.</li>
-    <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possible : <code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>.</li>
+    <li>Le langage des mots en binaire ayant une taille maximale de 2 caractères : <code>{ ε, 0, 1, 00, 11, 01, 10 }</code>. Il est important de noter que si la taille maximale des mots n'était pas imposée ici, ce langage ne serait pas fini car il y aurait une infinité de combinaisons de mots possibles : <code>{ 0, 1, 01, 001, 1011, 10101, ... }</code>.</li>
 </ul>
 
 <blockquote>
@@ -86,7 +88,7 @@
     <li>L'expression régulière <code>ab | b | baab</code> peut générer soit le mot <code>ab</code>, soit le mot <code>b</code>, soit le mot <code>baab</code>.</li>
 </ul>
 
-<p><strong>Étoile de Kleene</strong> : une expression régulière peut contenir une étoile de Kleene, représentée par un symbole <code>*</code> (asterisk). Elle indique que l'élément qui la précède peut être répété soit zero fois, soit plusieurs fois. Si l'étoile de Kleene d'une expression régulière est répétée zéro fois, l'expression régulière générera le mot vide : il est représenté par le symbole <code>ε</code> (epsilon). Une étoile de Kleene peut répéter plusieurs éléments s'ils sont mis entre parenthèses.</p>
+<p><strong>Étoile de Kleene</strong> : une expression régulière peut contenir une étoile de Kleene, représentée par un symbole <code>*</code> (asterisk). Elle indique que l'élément qui la précède peut être répété soit zéro fois, soit plusieurs fois. Si l'élément précédant l'étoile de Kleene est répété zéro fois, il disparaît du mot généré ; si tous les éléments du mot disparaissent, l'expression régulière génère le mot vide : il est représenté par le symbole <code>ε</code> (epsilon). Une étoile de Kleene peut répéter plusieurs éléments s'ils sont mis entre parenthèses.</p>
 
 <ul>
     <li>L'expression régulière <code>a*</code> peut générer une infinité de mots : <code>{ ε, a, aa, aaa, ..., aaaaaaa, ... }</code>. On n'oublie pas d'inclure le mot vide <code>ε</code> si l'élément précédant l'étoile de Kleene est répété zéro fois.</li>
@@ -94,14 +96,14 @@
 </ul>
 
 <blockquote>
-    <p>L'étoile de Kleene apporte le principe d'infinité aux expressions régulières ; Donc, une expression régulière contenant une étoile de Kleene ne pourra jamais faire partie d'un langage fini car on ne peut pas énumérer tous les mots du langage représenté.</p>
+    <p>L'étoile de Kleene apporte le principe d'infinité aux expressions régulières ; donc, le langage généré par une expression régulière contenant une étoile de Kleene ne pourra jamais être fini, car on ne peut pas énumérer tous les mots de ce langage.</p>
 </blockquote>
 
 <p><strong>Parenthèses</strong> : une expression régulière peut contenir des parenthèses, permettant de regrouper des éléments ensemble.</p>
 
 <ul>
     <li>L'expression régulière <code>(ab | b).a</code> peut générer les mots <code>{ aba, ba }</code>. Il faut d'abord choisir entre <code>ab</code> ou <code>b</code> dans l'expression, et ensuite concaténer <code>a</code>.</li>
-    <li>L'expression régulière <code>(ab)*</code> peut générer une infinité de mots : <code>{ ε, ab, abab, ababab, ..., abababababab, ... }</code>. On remarque que l'étoile de Klenne s'applique sur tous les éléments entre parenthèses, et non uniquement sur le dernier élément.</li>
+    <li>L'expression régulière <code>(ab)*</code> peut générer une infinité de mots : <code>{ ε, ab, abab, ababab, ..., abababababab, ... }</code>. On remarque que l'étoile de Kleene s'applique sur tous les éléments entre parenthèses, et non uniquement sur le dernier élément.</li>
     <li>L'expression régulière <code>(a | b)*</code> peut générer une infinité de mots : <code>{ ε, a, b, ab, ba, bbaabb, ... }</code>. Ici, à chaque fois qu'on répète une nouvelle fois l'étoile de Kleene, on peut re-choisir entre <code>a</code> ou <code>b</code>.</li>
 </ul>
 
@@ -123,15 +125,19 @@
 
 <ul>
     <li>L'expression régulière <code>a^3</code> peut générer le mot <code>aaa</code>.</li>
-    <li>L'expression régulière <code>a^[2-5]</code> peut générer les mot <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparaît entre <code>2</code> et <code>5</code> fois".</li>
+    <li>L'expression régulière <code>a^[2-5]</code> peut générer les mots <code>{ aa, aaa, aaaa, aaaaa }</code>. Cette expression peut se lire comme "<code>a</code> apparaît entre <code>2</code> et <code>5</code> fois".</li>
 </ul>
+
+<blockquote>
+    <p>La notation de l'exposant utilisée (<code>^</code> et <code>^[ ]</code>) est propre au cours. Dans les expressions régulières utilisées en programmation (Java, Python, JavaScript, etc.), on utilise à la place des accolades : <code>a{3}</code> pour répéter <code>a</code> trois fois, et <code>a{2,5}</code> pour une portée de <code>2</code> à <code>5</code>.</p>
+</blockquote>
 
 
 <h2>Automate Fini</h2>
 
 <p>Un <strong>automate fini</strong> est une représentation schématique d'un langage régulier. Il s'articule autour d'<em>états</em> et de <em>transitions</em>, ces dernières permettant de passer d'un état à un autre. Un automate fini contient un et un seul état dit <em>initial</em>, et au moins un état dit <em>final</em>.</p>
 
-<p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on aimerait représenter le langage <em>ab</em>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p>
+<p>Afin de comprendre le fonctionnement d'un automate fini, reprenons l'alphabet <code>Σ = { a, b }</code>. Supposons que l'on voudrait représenter le langage <em>ab</em>, permettant de générer le mot <code>ab</code>. Voici son automate fini :</p>
 
 <p><img src="../images/synsem-1-exemple-automate.png" alt="Image"></p>
 
@@ -150,7 +156,7 @@
 
 <p><img src="../images/synsem-1-exemple-automate-2.png" alt="Image"></p>
 
-<p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code>.</p>
+<p>On remarque que l'état E1 a une transition qui va vers lui-même, signifiant que tant qu'on est dans l'état E1, on peut répéter cette transition plusieurs fois. L'intitulé de cette transition est "a,b", signifiant que l'on peut choisir entre le caractère "a" ou le caractère "b" quand on transitionne. En comparaison avec les expressions régulières, ce type de transition correspond à l'étoile de Kleene. Donc, la transition "a,b" sur l'état E1 correspondrait à l'expression régulière <code>(a | b)*</code>. De façon plus générale, cet automate fini correspond à l'expression régulière <code>a(a|b)*a</code>, le langage des mots qui commencent et terminent par "a" sur l'alphabet <code>{ a, b }</code> (à noter que le mot "a" tout seul n'est pas généré ici : cet automate ne reconnaît que les mots de taille au moins 2).</p>
 
 <p>Vu qu'un automate fini permet de prouver qu'un langage est régulier, tout automate fini peut être représenté par une expression régulière (et inversement).</p>
 
@@ -197,7 +203,7 @@
 <h6>Tous les mots d'un langage régulier peuvent être énumérés exhaustivement.</h6>
 <details>
     <summary>Réponse</summary>
-    <p>Faux (pas nécessairement TOUS les langages réguliers sont finis)</p>
+    <p>Faux (TOUS les langages réguliers ne sont pas nécessairement finis)</p>
 </details>
 
 <h6>Tout langage fini est régulier.</h6>
@@ -232,12 +238,12 @@
 
 <h3>Classification de Langages</h3>
 
-<p>Soit les langages suivants définis sur l'alphabet <code>Σ = { 0, 1 }</code>. Déterminez si ce sont des langages réguliers et/ou finis. Utilisez les ensembles, expressions régulières, ou automates finis pour justifier vos réponses.</p>
+<p>Soient les langages suivants définis sur l'alphabet <code>Σ = { 0, 1 }</code>. Déterminez si ce sont des langages réguliers et/ou finis. Utilisez les ensembles, expressions régulières, ou automates finis pour justifier vos réponses.</p>
 
 <h6>Le langage des mots d'au plus deux symboles.</h6>
 <details>
     <summary>Réponse</summary>
-    <p>Le langage est fini, car tout ses mots peuvent être énumérés exhaustivement :</p>
+    <p>Le langage est fini, car tous ses mots peuvent être énumérés exhaustivement :</p>
 
     <p><code>{ ε, 0, 1, 00, 11, 01, 10 }</code></p>
 
@@ -251,7 +257,7 @@
 <h6>Le langage des mots de taille 2.</h6>
 <details>
     <summary>Réponse</summary>
-    <p>Le langage est fini (et en conséquence régulier), car tout ses mots peuvent être énumérés exhaustivement :</p>
+    <p>Le langage est fini (et en conséquence régulier), car tous ses mots peuvent être énumérés exhaustivement :</p>
 
     <p><code>{ 00, 11, 01, 10 }</code></p>
 </details>
@@ -259,11 +265,11 @@
 <h6>Le langage des mots qui commencent et finissent par "1".</h6>
 <details>
     <summary>Réponse</summary>
-    <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement. On ne peut pas construire un ensemble fini car il peut y avoir une infinité de "0" ou de "1" entre le premier et dernier "1". Pour vérifier si le langage est régulier (mais pas fini), on va essayer de trouver une expression régulière pour le représenter:</p>
+    <p>Le langage n'est pas fini, car tous ses mots ne peuvent pas être énumérés exhaustivement. On ne peut pas construire un ensemble fini car il peut y avoir une infinité de "0" ou de "1" entre le premier et le dernier "1". Pour vérifier si le langage est régulier (mais pas fini), on va essayer de trouver une expression régulière pour le représenter :</p>
 
     <p><code>1(0|1)*1 | 1</code></p>
 
-    <p>Le langage est régulier, car on a trouvé une expression régulière valide pour le représenter. À noter que la fin de l'expression régulière <code>| 1</code> permet de prendre en compte le cas ou le mot ne comprend qu'un seul "1".</p>
+    <p>Le langage est régulier, car on a trouvé une expression régulière valide pour le représenter. À noter que la fin de l'expression régulière <code>| 1</code> permet de prendre en compte le cas où le mot ne comprend qu'un seul "1".</p>
 </details>
 
 <h6>Le langage des nombres impairs en représentation binaire.</h6>
@@ -271,9 +277,9 @@
     <summary>Réponse</summary>
     <p>Un nombre binaire est impair si son dernier chiffre est un "1".</p>
 
-    <p>Le langage n'est pas fini, car tout ses mots ne peuvent pas être énumérés exhaustivement :</p>
+    <p>Le langage n'est pas fini, car tous ses mots ne peuvent pas être énumérés exhaustivement :</p>
 
-    <p><code>{ 01, 011, 101, 111, 1001, ... }</code></p>
+    <p><code>{ 1, 01, 11, 101, 111, 1001, ... }</code></p>
 
     <p>Le langage est régulier, car on peut trouver une expression régulière :</p>
 
@@ -283,7 +289,7 @@
 <h6>Le langage des mots présents dans les livres de Victor Hugo, qui sont codés en morse.</h6>
 <details>
     <summary>Réponse</summary>
-    <p>Le langage est fini car tout ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p>
+    <p>Le langage est fini car tous ses mots peuvent être énumérés exhaustivement. En effet, les livres contiennent un ensemble de mots qui est fini : <code>{ le, la, les, misérables, ... }</code>. Cet ensemble reste fini même s'il est codé en morse, car chaque mot français a sa correspondance en morse.</p>
 
     <p>Le langage est également régulier, car il est fini. Une expression régulière du langage consiste en un "OU" de tous les mots des livres : <code>le|la|les|misérables|...</code>.</p>
 </details>
@@ -329,7 +335,7 @@
     <summary>Réponse</summary>
     <p>Le langage n'est pas fini, car entre le premier et le dernier caractère du mot il peut y avoir une infinité d'autres caractères.</p>
 
-    <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>(0.(0|1)*.0) | (1.(0|1)*.1)</code>.</p>
+    <p>Le langage est régulier, car on peut trouver l'expression régulière suivante : <code>(0.(0|1)*.0) | (1.(0|1)*.1) | 0 | 1</code>.</p>
 </details>
 
 <h6>Le langage des mots qui ont un nombre impair de "1".</h6>
@@ -342,7 +348,7 @@
 
 <h3>Automates Finis</h3>
 
-<p>On considère l'automate ci dessous, défini sur l'alphabet <code>{ a, b, c }</code> :</p>
+<p>On considère l'automate ci-dessous, défini sur l'alphabet <code>{ a, b, c }</code> :</p>
 
 <p><img src="../images/synsem-1-automate-exercice.png" alt="Image"></p>
 
@@ -361,23 +367,23 @@
 <h6>Donnez l'expression régulière équivalente à cet automate.</h6>
 <details>
     <summary>Réponse</summary>
-    <p><strong>Etape 1</strong> : Représenter les états de l'automate dans un système d'équations. On n'oublie pas d'ajouter ε lorsque l'état est final.</p>
+    <p><strong>Étape 1</strong> : Représenter les états de l'automate dans un système d'équations. On n'oublie pas d'ajouter ε lorsque l'état est final.</p>
 
-<pre><code>S1 = a.S2 | b.S3
+<pre><code class="language-less">S1 = a.S2 | b.S3
 S2 = b.S2 | c.S1 | a.S3
 S3 = ε
 </code></pre>
 
-    <p><strong>Etape 2</strong> : Substituer les équations jusqu'à la première. Si une équation est récursive, appliquer le <em>Lemme d'Arden</em>.</p>
+    <p><strong>Étape 2</strong> : Substituer les équations jusqu'à la première. Si une équation est récursive, appliquer le <em>Lemme d'Arden</em>.</p>
 
     <blockquote>
         <p><strong>Lemme d'Arden</strong> : <code>Y = XY | Z &lt;=&gt; Y = X*.(Z)</code></p>
     </blockquote>
 
-<pre><code>S1 = a.S2 | b.ɛ
-S2 = b.S2 | c.S1 | a.ɛ
+<pre><code class="language-less">S1 = a.S2 | b.ε
+S2 = b.S2 | c.S1 | a.ε
 
-S1 = a.S2 | b.ɛ
+S1 = a.S2 | b.ε
 S2 = b*.(c.S1 | a)           =&gt; Lemme d'Arden
 
 S1 = a.(b*.(c.S1 | a)) | b
@@ -403,10 +409,18 @@ S1 = (ab*c)* (ab*a | b)      =&gt; Lemme d'Arden
     <p>Pour trouver le complément, il faut que l'automate initial soit déterministe et complet. Étant déjà déterministe (une seule transition sortante par symbole) et complet (une transition de chaque état pour tout symbole), il suffit de transformer l'état final <code>E0</code> en un état non-final, et l'état non-final <code>E1</code> en un état final. Ce nouvel automate représente le langage des "mots qui ont un nombre impair de 0".</p>
 </details>
 
-
 <footer>
-    <p>&copy; 2024-2026 Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>.</p>
+    <p>&copy; 2024-<span id="end-year"></span> Alix Decrop. Le contenu de cette page est mis à disposition selon les termes de la licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution - CC BY-NC-ND 4.0</a>.</p>
 </footer>
+</main>
+
+<script src="../scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+    setEndYear();
+    createTocEntries();
+    hljs.highlightAll();
+</script>
 
 </body>
 </html>

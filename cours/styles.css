@@ -5,6 +5,7 @@
     --muted: #666;
     --ok: #27ae60;
     --soft: #eef3f7;
+    --soft2: #e2e7eb;
 }
 
 * {
@@ -20,8 +21,27 @@ body {
     font-family: system-ui, "Segoe UI", Roboto, "Cantarell", "Noto Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.65;
-    margin: auto;
-    max-width: 60%;
+    margin: 0;
+}
+
+main {
+    margin-left: 20%;
+    max-width: 70%;
+}
+
+nav {
+    background-color: var(--soft2);
+    height: 100vh;
+    left: 0;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 15%;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 h1 {
@@ -49,10 +69,15 @@ h6 {
 
 a {
     color: var(--accent);
+    text-decoration: none;
 }
 
 ul li {
     margin: .25rem 0;
+}
+
+img {
+    max-width: 100%;
 }
 
 blockquote {
@@ -78,25 +103,42 @@ details {
     padding: 0.5rem;
 }
 
-details:hover {
-    background-color: var(--soft);
-}
-
 summary {
+    border-radius: 4px;
     color: var(--ok);
     cursor: pointer;
     font-weight: 500;
+    margin: -0.5rem;
+    padding: 0.5rem;
+}
+
+summary:hover {
+    background-color: var(--soft);
 }
 
 footer {
-    border-top: 1px solid var(--soft);
     color: var(--muted);
     font-size: 0.9rem;
     margin-top: 4rem;
-    padding-top: 1rem;
     text-align: center;
 }
 
 .last-update-p {
     color: var(--muted);
+    font-style: italic;
+}
+
+.toc-item-nested {
+    font-size: 0.9rem;
+    margin-left: 1.5rem;
+}
+
+@media (max-width: 767px) {
+    main {
+        margin: auto;
+        max-width: 90%;
+    }
+    nav {
+        display: none;
+    }
 }
